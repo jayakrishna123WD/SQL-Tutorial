@@ -1,0 +1,557 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: justify;
+}
+/*all pages*/
+.bottom{
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    scroll-behavior: smooth;
+}
+.divi{
+    background-color: #141E30;
+    color: #141E30;
+    box-shadow: 0 0 1em #ffffff;
+    width: 90%;
+    margin: 0 auto;
+}
+/*header part*/
+header{
+    position: relative;
+    background: #141E30;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: 'Amatic SC', cursive;
+}
+.one, .two, .three{
+    height: 100vh;
+    width: 100%;
+    color: white;
+}
+.one h1, .two h1, .three h1{
+    font-size: 4em;
+}
+.one h1{
+    text-align: right;
+    padding: 3em 1.5em 0 4em;
+}
+.two h1, .three h1{
+    text-align: center;
+    padding: 1.5em;
+}
+.two h1{
+    padding: 3em 0 0 0;
+}
+.three h1{
+    text-align: right;
+    padding: 3.2em 3em;
+}
+.three{
+    background-image: url(../images/sql\ back.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.sql{
+    font-size: 2em;
+}
+/*main part styling*/
+.things{
+    height: 120vh;
+    padding: 2em;
+}
+.same{
+    max-width: 500px;
+    display: block;
+    margin: 1em auto;
+    box-shadow: 0 0 1em #1c2734;
+}
+.top{
+    padding: 1em;
+    height: 100vh;
+    color: white;
+    font-family: 'Inconsolata', monospace;
+    line-height: 1.5;
+}
+main{
+    background: #2b5876;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-size: 1.5em;
+    padding: 1em 0;
+}
+.head{
+    color: white;
+    padding: 1em;
+    text-align: center;
+    font-family: 'Nixie One', cursive;
+    letter-spacing: 2px;
+}
+.content h3{
+    padding: 0.3em 0 1em 0;
+    letter-spacing: 2px;
+    font-family: 'Nixie One', cursive;
+    text-align: left;
+}
+.content{
+    max-width: 900px;
+    height: auto;
+    padding: 1em;
+    background: rgba( 255, 255, 255, 0.15 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 6.5px );
+    -webkit-backdrop-filter: blur( 6.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color: white;
+    margin: 1em auto;
+    font-family: 'Inconsolata', monospace;
+    line-height: 1.5;
+}
+.content ul{
+    padding-left: 40px;
+}
+.nokkara{
+    text-decoration: none;
+    color: aqua;
+}
+.top2{
+    height: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 2em 0;
+}
+.contents{
+    width: 80vw;
+    height: auto;
+    margin: 0 auto;
+    background: rgba( 255, 255, 255, 0.15 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 6.5px );
+    -webkit-backdrop-filter: blur( 6.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.d{
+    display: inline-block;
+}
+.fle{
+    padding: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    align-items: baseline;
+}
+.sev{
+    height: 200px;
+    width: 250px;
+    border: 2px solid rgba( 255, 255, 255, 0.15 );
+    border-radius: 25px;
+    padding: 0.4em;
+    margin: 0.5em;
+    text-align: left;
+    padding-top: 5rem;
+    background-image: url(../images/database.png);
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 20% 25%;
+    font-weight: bold;
+    font-family: 'Inconsolata', monospace;
+    font-size: 1em;
+}
+.sev a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+.lite, .lite2{
+    color: white;
+    font-family: 'Inconsolata', monospace;
+    line-height: 1.5;
+    padding: 1em;
+}
+.lite2 p{
+    text-align: center;
+}
+
+.thin{
+    width: 90%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid;
+    border-radius: 20px;
+    box-shadow: 0 0 1em #1c2734;
+}
+
+
+
+/*@media only screen and (min-width: 320px) and (max-width: 375px)*/
+
+@media only screen and (min-width: 320px) and (max-width: 375px){
+    .same{
+        width: 90%;
+        height: auto;
+    }
+    .one h1, .two h1, .three h1{
+        font-size: 2.2em;
+    }
+    .one h1{
+        text-align: right;
+        padding: 5em 1.5em 0 4em;
+    }
+    .two h1, .three h1{
+        text-align: center;
+        padding: 1.5em;
+    }
+    .two h1{
+        padding: 4em 0 0 0;
+    }
+    .three h1{
+        text-align: right;
+        padding: 5em 0.5em 0 0;
+    }
+    .sql{
+        font-size: 2em;
+    }
+    .d{
+        display: inline-block;
+        height: 50px;
+        width: 50px;
+    }
+    main{
+        font-size: 1em;
+        padding: 0.3em;
+    }
+    .things{
+        height: auto;
+        padding: 1em;
+    }
+    .sev{
+        height: 170px;
+        width: 200px;
+        letter-spacing: 2px;
+    }
+    section{
+        padding: 0.1em;
+    }
+}
+
+/*@media only screen and (min-width: 375px) and (max-width: 399px)*/
+@media only screen and (min-width: 375px) and (max-width: 399px){
+    .same{
+        width: 90%;
+        height: auto;
+    }
+    .one h1, .two h1, .three h1{
+        font-size: 2.3em;
+    }
+    .one h1{
+        text-align: right;
+        padding: 5em 1.5em 0 4em;
+    }
+    .two h1, .three h1{
+        text-align: center;
+        padding: 1.5em;
+    }
+    .two h1{
+        padding: 4em 0 0 0;
+    }
+    .three h1{
+        text-align: right;
+        padding: 5em 0.5em 0 0;
+    }
+    .sql{
+        font-size: 2em;
+    }
+    .d{
+        display: inline-block;
+        height: 50px;
+        width: 50px;
+    }
+    main{
+        font-size: 1.1em;
+        padding: 0.5em;
+    }
+    .things{
+        height: auto;
+        padding: 1em;
+    }
+    .sev{
+        height: 170px;
+        width: 200px;
+        letter-spacing: 2px;
+        font-size: 1em;
+    }
+    section{
+        padding: 0.1em;
+    }
+}
+
+/*@media only screen and (min-width: 399px) and (max-width: 425px)*/
+@media only screen and (min-width: 399px) and (max-width: 425px){
+    .same{
+        width: 90%;
+        height: auto;
+    }
+    .one h1, .two h1, .three h1{
+        font-size: 2.4em;
+    }
+    .one h1{
+        text-align: right;
+        padding: 5em 1.5em 0 4em;
+    }
+    .two h1, .three h1{
+        text-align: center;
+        padding: 1.5em;
+    }
+    .two h1{
+        padding: 4em 0 0 0;
+    }
+    .three h1{
+        text-align: right;
+        padding: 5em 0.5em 0 0;
+    }
+    .sql{
+        font-size: 2.1em;
+    }
+    .d{
+        display: inline-block;
+        height: 50px;
+        width: 50px;
+    }
+    main{
+        font-size: 1.2em;
+        padding: 0.7em;
+    }
+    .things{
+        height: auto;
+        padding: 1em;
+    }
+    .sev{
+        height: 180px;
+        width: 210px;
+        letter-spacing: 2px;
+        font-size: 1.1em;
+    }
+    section{
+        padding: 0.1em;
+    }
+}
+
+/*@media only screen and (min-width: 425px) and (max-width: 500px)*/
+@media only screen and (min-width: 425px) and (max-width: 500px){
+    .same{
+        width: 90%;
+        height: auto;
+    }
+    .one h1, .two h1, .three h1{
+        font-size: 2.5em;
+    }
+    .one h1{
+        text-align: right;
+        padding: 5em 1.5em 0 4em;
+    }
+    .two h1, .three h1{
+        text-align: center;
+        padding: 1.5em;
+    }
+    .two h1{
+        padding: 4em 0 0 0;
+    }
+    .three h1{
+        text-align: right;
+        padding: 4em 0.5em 0 0;
+    }
+    .sql{
+        font-size: 2.2em;
+    }
+    .d{
+        display: inline-block;
+        height: 60px;
+        width: 60px;
+    }
+    main{
+        font-size: 1.3em;
+        padding: 0.8em;
+    }
+    .top{
+        margin-bottom: 2em;
+    }
+    .things{
+        height: auto;
+        padding: 1  em;
+    }
+    .sev{
+        height: 180px;
+        width: 210px;
+        letter-spacing: 2px;
+        font-size: 1.1em;
+    }
+    section{
+        padding: 0.1em;
+    }
+}
+
+/*@media only screen and (min-width: 500px) and (max-width: 768px)*/
+@media only screen and (min-width: 500px) and (max-width: 768px){
+    .same{
+        width: 90%;
+        height: auto;
+    }
+    .one h1, .two h1, .three h1{
+        font-size: 2.7em;
+    }
+    .one h1{
+        text-align: right;
+        padding: 5em 1.5em 0 4em;
+    }
+    .two h1, .three h1{
+        text-align: center;
+        padding: 1.5em;
+    }
+    .two h1{
+        padding: 4em 0 0 0;
+    }
+    .three h1{
+        text-align: right;
+        padding: 4em 1.6em 0 0;
+    }
+    .sql{
+        font-size: 2.2em;
+    }
+    .d{
+        display: inline-block;
+        height: 70px;
+        width: 70px;
+    }
+    main{
+        font-size: 1.3em;
+        padding: 0.8em;
+    }
+    .top{
+        margin-bottom: 2em;
+    }
+    .things{
+        height: auto;
+        padding: 1  em;
+    }
+    .sev{
+        height: 180px;
+        width: 210px;
+        letter-spacing: 2px;
+        font-size: 1.1em;
+    }
+    section{
+        padding: 0.1em;
+    }
+}
+
+/*@media only screen and (min-width: 768px) and (max-width: 900px)*/
+@media only screen and (min-width: 768px) and (max-width: 900px){
+    .same{
+        width: 90%;
+        height: auto;
+    }
+    .one h1, .two h1, .three h1{
+        font-size: 3em;
+    }
+    .one h1{
+        text-align: right;
+        padding: 5em 1.5em 0 4em;
+    }
+    .two h1, .three h1{
+        text-align: center;
+        padding: 1.5em;
+    }
+    .two h1{
+        padding: 4em 0 0 0;
+    }
+    .three h1{
+        text-align: right;
+        padding: 4em 1.6em 0 0;
+    }
+    .sql{
+        font-size: 2.2em;
+    }
+    .d{
+        display: inline-block;
+        height: 70px;
+        width: 70px;
+    }
+    main{
+        font-size: 1.4em;
+        padding: 0.8em;
+    }
+    .top{
+        margin-bottom: 2em;
+    }
+    .things{
+        height: auto;
+        padding: 2em;
+    }
+    .sev{
+        height: 180px;
+        width: 210px;
+        letter-spacing: 2px;
+        font-size: 1.1em;
+    }
+    section{
+        padding: 0.1em;
+    }
+}
+
+/*@media only screen and (min-width: 900px) and (max-width: 1024px)*/
+@media only screen and (min-width: 900px) and (max-width: 1024px){
+    .same{
+        width: 90%;
+        height: auto;
+    }
+    .one h1, .two h1, .three h1{
+        font-size: 3.4em;
+    }
+    .one h1{
+        text-align: right;
+        padding: 5em 1.5em 0 4em;
+    }
+    .two h1, .three h1{
+        text-align: center;
+        padding: 1.5em;
+    }
+    .two h1{
+        padding: 4em 0 0 0;
+    }
+    .three h1{
+        text-align: right;
+        padding: 4em 1.6em 0 0;
+    }
+    .sql{
+        font-size: 2.2em;
+    }
+    .d{
+        display: inline-block;
+        height: 70px;
+        width: 70px;
+    }
+    main{
+        font-size: 1.4em;
+        padding: 0.8em;
+    }
+    .top{
+        margin-bottom: 2em;
+    }
+    .things{
+        height: auto;
+        padding: 2.5em;
+    }
+    .sev{
+        height: 180px;
+        width: 210px;
+        letter-spacing: 2px;
+        font-size: 1.1em;
+    }
+    section{
+        padding: 0.1em;
+    }
+}

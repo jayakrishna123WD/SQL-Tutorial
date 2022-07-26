@@ -1,0 +1,428 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inconsolata', monospace;
+    color: white;
+}
+.bottom{
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    scroll-behavior: smooth;
+}
+body{
+    background: #141E30;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.sql{
+    position: fixed;
+    top: 5px;
+    right: 5px;
+}
+.an{
+    text-decoration: none;
+    color: white;
+}
+.an1{
+    margin-left: 3rem;
+}
+.extra{
+    color: aqua;
+}
+.head{
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 1em;
+}
+.cen{
+    text-align: center;
+    letter-spacing: 5px;
+    text-shadow: 0 0 10px #fff;
+    font-family: 'Nixie One', cursive;
+}
+main{
+    line-height: 1.6;
+    text-align: justify;
+    font-size: 1.5em;
+    padding: 1em;
+}
+.haha a{
+    font-size: 1em;
+    color: aqua;
+    line-height: 1.5;
+}
+.ten h2{
+    font-size: 1em;
+}
+.ten{
+    margin-left: 1rem;
+}
+.ten2{
+    margin-left: 2rem;
+    padding: 1rem;
+}
+.same{
+    max-width: 400px;
+    display: block;
+    margin: 1em auto;
+    box-shadow: 0 0 1em #1c2734;
+}
+.one{
+    max-width: 600px;
+}
+.content{
+    max-width: 900px;
+    height: auto;
+    padding: 1em;
+    background: rgba( 255, 255, 255, 0.15 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 6.5px );
+    -webkit-backdrop-filter: blur( 6.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color: white;
+    margin: 1em auto;
+    font-family: 'Inconsolata', monospace;
+    line-height: 1.5;
+}
+.content h3{
+    padding: 0.3em 0 0.4em 0;
+    letter-spacing: 2px;
+    font-family: 'Nixie One', cursive;
+    text-align: left;
+}
+.code{
+    max-width: 700px;
+    border-radius: 10px;
+    background: linear-gradient(315deg, #4b5d7a, #5b7195);
+    margin: 0.5em auto;
+    padding: 1em;
+    text-align: left;
+}
+.code p{
+    font-family: 'Red Hat Mono', monospace;
+}
+h4{
+    letter-spacing: 3px;
+    border-bottom: 2px solid;
+    text-align: left;
+}
+summary{
+    font-size: 1em;
+    font-family: 'Nixie One', cursive;
+    text-align: left;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+details{
+    margin: 1em 0;
+}
+.lite2{
+    color: white;
+    font-family: 'Inconsolata', monospace;
+    line-height: 1.5;
+    padding: 1em;
+}
+.lite2 p{
+    text-align: center;
+    font-size: 1em;
+}
+
+
+/*@media only screen and (min-width: 320px) and (max-width: 375px)*/
+
+@media only screen and (min-width: 320px) and (max-width: 375px){
+    .same{
+        width: 90%;
+        height: auto;
+    }
+    main{
+        font-size: 1em;
+        padding: 0.3em;
+    }
+    section{
+        padding: 0.3em;
+    }
+    .ten{
+        margin-left: 0.2rem;
+    }
+    .ten2{
+        margin-left: 0rem;
+        padding: 0.5rem;
+    }
+    .cen{
+        text-align: center;
+        letter-spacing: 3px;
+        text-shadow: 0 0 6px #fff;
+        font-family: 'Nixie One', cursive;
+        font-size: 1.3em;
+    }
+    .code{
+        white-space: wrap;
+        overflow-x: scroll;
+    }
+    .an1{
+        margin-left: 1.5rem;
+    }
+    .head{
+        max-width: 290px;
+        margin: 0 auto;
+        padding: 1em;
+    }
+    .head img{
+        height: 30px;
+        width: 30px;
+    }
+}
+
+/*@media only screen and (min-width: 375px) and (max-width: 399px)*/
+@media only screen and (min-width: 375px) and (max-width: 399px){
+    .same{
+        width: 90%;
+        height: auto;
+    }
+    main{
+        font-size: 1.1em;
+        padding: 0.5em;
+    }
+    section{
+        padding: 0.1em;
+    }
+    .ten{
+        margin-left: 0.2rem;
+    }
+    .ten2{
+        margin-left: 0.1rem;
+        padding: 0.3rem;
+    }
+    .cen{
+        text-align: center;
+        letter-spacing: 3px;
+        text-shadow: 0 0 6px #fff;
+        font-family: 'Nixie One', cursive;
+        font-size: 1.3em;
+    }
+    .code{
+        white-space: wrap;
+        overflow-x: scroll;
+    }
+    header{
+        width: 100%;
+        margin: 0 auto;
+    }
+    .head img{
+        height: 30px;
+        width: 30px;
+    }
+}
+
+/*@media only screen and (min-width: 399px) and (max-width: 425px)*/
+@media only screen and (min-width: 399px) and (max-width: 425px){
+    .same{
+        width: 90%;
+        height: auto;
+    }
+    main{
+        font-size: 1.2em;
+        padding: 0.7em;
+    }
+    section{
+        padding: 0.1em;
+    }
+    .ten{
+        margin-left: 0.3rem;
+    }
+    .ten2{
+        margin-left: 0.2rem;
+        padding: 0.3rem;
+    }
+    .cen{
+        text-align: center;
+        letter-spacing: 3px;
+        text-shadow: 0 0 6px #fff;
+        font-family: 'Nixie One', cursive;
+        font-size: 1.3em;
+    }
+    .code{
+        white-space: wrap;
+        overflow-x: scroll;
+    }
+    header{
+        width: 100%;
+        margin: 0 auto;
+    }
+    .head img{
+        height: 30px;
+        width: 30px;
+    }
+}
+
+/*@media only screen and (min-width: 425px) and (max-width: 500px)*/
+@media only screen and (min-width: 425px) and (max-width: 500px){
+    .same{
+        width: 90%;
+        height: auto;
+    }
+    main{
+        font-size: 1.3em;
+        padding: 0.8em;
+    }
+    .top{
+        margin-bottom: 2em;
+    }
+    section{
+        padding: 0.1em;
+    }
+    .ten{
+        margin-left: 0.4rem;
+    }
+    .ten2{
+        margin-left: 0.3rem;
+        padding: 0.3rem;
+    }
+    .cen{
+        text-align: center;
+        letter-spacing: 3px;
+        text-shadow: 0 0 6px #fff;
+        font-family: 'Nixie One', cursive;
+        font-size: 1.5em;
+    }
+    .code{
+        white-space: wrap;
+        overflow-x: scroll;
+    }
+    header{
+        width: 100%;
+        margin: 0 auto;
+    }
+    .head img{
+        height: 30px;
+        width: 30px;
+    }
+}
+
+/*@media only screen and (min-width: 500px) and (max-width: 768px)*/
+@media only screen and (min-width: 500px) and (max-width: 768px){
+    .same{
+        width: 90%;
+        height: auto;
+    }
+    main{
+        font-size: 1.3em;
+        padding: 0.8em;
+    }
+    .top{
+        margin-bottom: 2em;
+    }
+    section{
+        padding: 0.1em;
+    }
+    .ten{
+        margin-left: 0.5rem;
+    }
+    .ten2{
+        margin-left: 0.4rem;
+        padding: 0.3rem;
+    }
+    .cen{
+        text-align: center;
+        letter-spacing: 3px;
+        text-shadow: 0 0 6px #fff;
+        font-family: 'Nixie One', cursive;
+        font-size: 1.6em;
+    }
+    .code{
+        white-space: wrap;
+        overflow-x: scroll;
+    }
+    header{
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+/*@media only screen and (min-width: 768px) and (max-width: 900px)*/
+@media only screen and (min-width: 768px) and (max-width: 900px){
+    .same{
+        width: 90%;
+        height: auto;
+    }
+    main{
+        font-size: 1.3em;
+        padding: 0.8em;
+    }
+    .top{
+        margin-bottom: 2em;
+    }
+    section{
+        padding: 0.1em;
+    }
+    .ten{
+        margin-left: 0.7rem;
+    }
+    .ten2{
+        margin-left: 0.6rem;
+        padding: 0.3rem;
+    }
+    .cen{
+        text-align: center;
+        letter-spacing: 3px;
+        text-shadow: 0 0 6px #fff;
+        font-family: 'Nixie One', cursive;
+        font-size: 2em;
+    }
+    .code{
+        white-space: wrap;
+        overflow-x: scroll;
+    }
+    header{
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+/*@media only screen and (min-width: 900px) and (max-width: 1024px)*/
+@media only screen and (min-width: 900px) and (max-width: 1024px){
+    .same{
+        width: 90%;
+        height: auto;
+    }
+    main{
+        font-size: 1.4em;
+        padding: 0.8em;
+    }
+    .top{
+        margin-bottom: 2em;
+    }
+    section{
+        padding: 0.1em;
+    }
+    .ten{
+        margin-left: 0.8rem;
+    }
+    .ten2{
+        margin-left: 0.7rem;
+        padding: 0.3rem;
+    }
+    .cen{
+        text-align: center;
+        letter-spacing: 3px;
+        text-shadow: 0 0 6px #fff;
+        font-family: 'Nixie One', cursive;
+        font-size: 2em;
+    }
+    .code{
+        white-space: wrap;
+        overflow-x: scroll;
+    }
+    .an1{
+        margin-left: 1.5rem;
+    }
+    .head{
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 1em;
+    }
+}
