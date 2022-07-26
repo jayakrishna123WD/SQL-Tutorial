@@ -1,0 +1,2638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--font-family: 'Inconsolata', monospace;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap" rel="stylesheet">
+
+    <!--font-family: 'Nixie One', cursive;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nixie+One&display=swap" rel="stylesheet">
+
+    <!--font-family: 'Red Hat Mono', monospace;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="../styles/database.css">
+    <title>SQL Clauses & Statements</title>
+    <link rel="icon" type="image/x-icon" href="/images/sql icon.png">
+    <meta charset="UTF-8">
+    <meta name="description" content="SQL Clauses & Statements">
+    <meta name="keywords" content="SQL Clauses & Statements, retrieving data from tabe">
+    <meta name="author" content="Polamarasetti Jayakrishna">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="sql">
+        <img src="../images/sql icon.png" alt="sql" class="sql" width="50px" height="50px">
+    </div>
+
+    <header>
+        <h1 class="head"><a class="an" href="../html files/SQL Constraints.html"><img src="../images/before.png" alt="before" height="50px" width="50px"></a> <a href="../index.html#top2" class="an"><img src="../images/home.png" alt="home" height="50px" width="50px"></a> <a href="../html files/SQL Joins.html" class="an"><img src="../images/next.png" alt="next" height="50px" width="50px"></a> 
+    </h1>
+    <p id="top"></p>
+    <h1 class="cen">SQL Clauses & Statements</h1>
+    </header>
+
+    <article class="ten">
+        <p id="top"></p>
+        <h2>List of Topics: </h2>
+        <div class="ten2 haha">
+            &#127809; <a href="#select">SELECT Statement</a ><br>
+            &#127809; <a href="#where">WHERE Clause</a> <br>
+            &#127809; <a href="#distinct">DISTINCT Clause</a> <br>
+            &#127809; <a href="#andornot">AND, OR, and NOT Operators</a> <br>
+            &#127809; <a href="#alias">AS keyword</a> <br>
+            &#127809; <a href="#orderby">ORDER BY Clause</a> <br>
+            &#127809; <a href="#limit">LIMIT, TOP and FETCH FIRST Clause</a> <br>
+            &#127809; <a href="#in">IN, NOT IN Operator</a> <br>
+            &#127809; <a href="#btw">BETWEEN & NOT BETWEEN Operator</a> <br>
+            &#127809; <a href="#null">IS NULL and IS NOT NULL</a> <br>
+            &#127809; <a href="#like">LIKE and NOT LIKE Operators</a> <br>
+            &#127809; <a href="#wildcard">Wildcards</a> <br>
+            &#127809; <a href="#union">UNION Operator</a> <br>
+            &#127809; <a href="#any">ANY and ALL Operators</a> <br>
+            &#127809; <a href="#case">CASE Statement</a> <br>
+        </div>
+    </article>
+    <img src="../images/what.._-enti-ra-idi.gif" alt="entra" class="same">
+    <main>
+        &#127775; i think you feel like.. Entra idhi intundi tappadamma kani baguntay anni, chooste neeke telisipotundi le easy gane untay. <br>
+        &#127775; locker open cheyyalante key kavali aythe SQL mothaniki key lantivadu ee session lo unnadu mere choostaru le <br>
+        &#127775; ee session antha kooda related to one of the core concepts of SQL, name is <strong>Data Query Language</strong> <br>
+        &#127775; Manam Data Definition Language(DDL) & Data Manipulation Language(DML) choosam now its time for DQL. <br>
+        
+        <!--SELECT statement-->
+        <p id="select"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; SELECT Statement</summary>
+            &#127775; Data create chesam, unna data ni delete chesam ok asalu data yela access cheyyali &#129300; <br>
+            &#127775; nen cheppa ga key lantivadu ani vade SELECT veedi help thone ye table lo unna data ayina manam access chestam, inka late enduku queries raddham randi <br>
+            <img src="../images/lets-go-sunil.gif" alt="go" class="same">
+            &#127775; enti choostunnav padha <br>
+            &#127775; table lo anadari details at a time access cheddam <br>
+            &#127809; Customers Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>Customerid</th>
+                        <th>name</th>
+                        <th>age</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Tony</td>
+                        <td>43</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Steve</td>
+                        <td>38</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Bruce</td>
+                        <td>40</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT</span> *</p>
+                <p><span class="yel">FROM </span>Customers;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>Customerid</th>
+                        <th>name</th>
+                        <th>age</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Tony</td>
+                        <td>43</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Steve</td>
+                        <td>38</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Bruce</td>
+                        <td>40</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; SELECT keyword data ni select chestundi, ah data yekkada nunchi select cheyyali anedi decide chesedi FROM keyword <br>
+            &#127775; naku only age column okate kavali ante * place lo column name mention chestaru, multiple column kooda select cheyyochu comma tho seperate chesi rayandi column names ni <br>
+            &#127809; Customers Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>Customerid</th>
+                        <th>name</th>
+                        <th>age</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Tony</td>
+                        <td>43</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Steve</td>
+                        <td>38</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Bruce</td>
+                        <td>40</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p>-- for single column</p>
+                <p><span class="yel">SELECT</span> age</p>
+                <p><span class="yel">FROM </span>Customers;</p>
+                <br>
+                <p>-- for multiple column</p>
+                <p><span class="yel">SELECT</span> age, Customerid</p>
+                <p><span class="yel">FROM </span>Customers;</p>
+            </div>
+            &#127809; Outcome for single column query:<br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>age</th>
+                    </tr>
+    
+                    <tr>
+                        <td>43</td>
+                    </tr>
+    
+                    <tr>
+                        <td>38</td>
+                    </tr>
+    
+                    <tr>
+                        <td>40</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Outcome for multiple column query: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>age</th>
+                        <th>Customerid</th>
+                    </tr>
+    
+                    <tr>
+                        <td>43</td>
+                        <td class="c">1</td>
+                    </tr>
+    
+                    <tr>
+                        <td>38</td>
+                        <td class="c">2</td>
+                    </tr>
+    
+                    <tr>
+                        <td>40</td>
+                        <td class="c">3</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; meeru ye sequence lo column names mention chestaro ah sequence lo ne data retrieve avtundi <br>
+            &#127775; <a target="_blank" class="p" href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all">nannu click chey</a> select statement practice chese place ki teeskelta <br>
+            </details>
+        </section>
+
+        <!--WHERE Clause-->
+        <p id="where"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; WHERE Clause</summary>
+            &#127775; suppose naku greater than or equal to 40 age persons kavali, ila oka particular condition satisfy chese data kavalante where clause use cheyyali <br>
+            &#127809; Customers Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>Customerid</th>
+                        <th>name</th>
+                        <th>age</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Tony</td>
+                        <td>43</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Steve</td>
+                        <td>38</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Bruce</td>
+                        <td>40</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT</span> *</p>
+                <p><span class="yel">FROM </span>Customers</p>
+                <p><span class="yel">WHERE </span>age &#62;= <span class="yel">40</span>;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>Customerid</th>
+                        <th>name</th>
+                        <th>age</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Tony</td>
+                        <td>43</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Bruce</td>
+                        <td>40</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; where clause use chesi meeru operators help tho conditions create cheyyochu, table lo data manam icchina condition satisfy cheste output vastundi <br>
+            &#127775; visit <a target="_blank" class="p" href="../html files/Introduction to SQL.html#Operators">Operators</a> once, meku idea vastundi <br>
+            <img src="../images/manju-gabbar-singh.gif" alt="not" class="same">
+            &#127775; appude ayipoyindi anukoku, ippude modalaindi ippude modalaindi ah ahh. where clause chala help chestadu, mundhu mundhu meere choostaru ga<br>
+            &#127775; <a target="_blank" class="p" href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_where">nannu click chey</a> WHERE Clause practice chese place ki teeskelta <br>
+            </details>
+        </section>
+
+        <!--DISTINCT Clause-->
+        <p id="distinct"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; DISTINCT Clause</summary>
+            &#127775; manaki unique values matrame kavali anukunappudu ee clause ni use chestam <br>
+            &#127809; Customers Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>Customerid</th>
+                        <th>name</th>
+                        <th>country</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Tony</td>
+                        <td>USA</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Steve</td>
+                        <td>UK</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Bruce</td>
+                        <td>USA</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Nat</td>
+                        <td>India</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT DISTINCT </span> country</p>
+                <p><span class="yel">FROM </span>Customers;</p>
+            </div>
+            &#127809; Customers Table:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>country</th>
+                    </tr>
+    
+                    <tr>
+                        <td>USA</td>
+                    </tr>
+    
+                    <tr>
+                        <td>UK</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>India</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; <a target="_blank" class="p" href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_distinct">nannu click chey</a> DISTINCT Clause practice chese place ki teeskelta <br>
+            </details>
+        </section>
+
+        <!--AND, OR, and NOT Operators-->
+        <p id="andornot"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; AND, OR, and NOT Operators</summary>
+            &#127809; AND Operator: <br>
+            &#127809; Customers Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>Customerid</th>
+                        <th>firstname</th>
+                        <th>lastname</th>
+                        <th>country</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>iron</td>
+                        <td>man</td>
+                        <td>USA</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>iron</td>
+                        <td>heart</td>
+                        <td>UK</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>bruce</td>
+                        <td>banner</td>
+                        <td>USA</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Nat</td>
+                        <td>roman</td>
+                        <td>Australia</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT</span> firstname, lastname</p>
+                <p><span class="yel">FROM </span>Customers</p>
+                <p><span class="yel">WHERE</span> firstname = <span class="str">'iron'</span> <span class="yel">AND </span>country = <span class="str">'USA'</span>;</p>
+            </div>
+            &#127809; Outcome: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>firstname</th>
+                        <th>lastname</th>
+                    </tr>
+    
+                    <tr>
+                        <td>iron</td>
+                        <td>man</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; AND operator outputs true if both operands becomes true, condition prakaram follow ayyindi row 1 ye kadha anduke output adhi vachindi <br>
+            &#127775; <a target="_blank" class="p" href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_where_and">nannu click chey</a> AND Operator practice chese place ki teeskelta <br>
+
+            <hr class="divi">
+            &#127809; OR Operator: <br>
+            &#127809; Customers Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>Customerid</th>
+                        <th>firstname</th>
+                        <th>lastname</th>
+                        <th>country</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>iron</td>
+                        <td>man</td>
+                        <td>USA</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>iron</td>
+                        <td>heart</td>
+                        <td>UK</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>bruce</td>
+                        <td>banner</td>
+                        <td>USA</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Nat</td>
+                        <td>roman</td>
+                        <td>Australia</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT</span> firstname, lastname</p>
+                <p><span class="yel">FROM </span>Customers</p>
+                <p><span class="yel">WHERE</span> firstname = <span class="str">'iron'</span> <span class="yel">OR </span>country = <span class="str">'USA'</span>;</p>
+            </div>
+            &#127809; Outcome: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>firstname</th>
+                        <th>lastname</th>
+                    </tr>
+    
+                    <tr>
+                        <td>iron</td>
+                        <td>man</td>
+                    </tr>
+    
+                    <tr>
+                        <td>iron</td>
+                        <td>heart</td>
+                    </tr>
+    
+                    <tr>
+                        <td>bruce</td>
+                        <td>banner</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; or kosam telisindega operands lo okati satisfy ayina output icchestadu <br>
+            &#127775; <a target="_blank" class="p" href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_where_or">nannu click chey</a> OR Operator practice chese place ki teeskelta <br>
+
+            <hr class="divi">
+            &#127809; NOT Operator: <br>
+            &#127775; naku usa country vallu kakunda vere vallu kavali daniki query yela rastam <br>
+            &#127809; Customers Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>Customerid</th>
+                        <th>firstname</th>
+                        <th>lastname</th>
+                        <th>country</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>iron</td>
+                        <td>man</td>
+                        <td>USA</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>iron</td>
+                        <td>heart</td>
+                        <td>UK</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>bruce</td>
+                        <td>banner</td>
+                        <td>USA</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Nat</td>
+                        <td>roman</td>
+                        <td>Australia</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT</span> firstname, lastname</p>
+                <p><span class="yel">FROM </span>Customers</p>
+                <p><span class="yel">WHERE NOT</span> country = <span class="str">'USA'</span>;</p>
+                <br>
+                <p>-- ila kooda rayocchu</p>
+                <p><span class="yel">SELECT</span> firstname, lastname</p>
+                <p><span class="yel">FROM </span>Customers</p>
+                <p><span class="yel">WHERE</span> country != <span class="str">'USA'</span>;</p>
+                <br>
+                <p>-- ila kooda rayocchu</p>
+                <p><span class="yel">SELECT</span> firstname, lastname</p>
+                <p><span class="yel">FROM </span>Customers</p>
+                <p><span class="yel">WHERE</span> country &#60;&#62; <span class="str">'USA'</span>;</p>
+            </div>
+            &#127809; Outcome: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>firstname</th>
+                        <th>lastname</th>
+                    </tr>  
+    
+                    <tr>
+                        <td>iron</td>
+                        <td>heart</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Nat</td>
+                        <td>roman</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; ah 3 queries kooda same output ni generate chestay ila ee operators help avtay. <br>
+            &#127775; <a target="_blank" class="p" href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_where_not">nannu click chey</a> NOT Operator practice chese place ki teeskelta <br>
+            </details>
+        </section>
+
+        <!--AS keyword-->
+        <p id="alias"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; AS Alias</summary>
+            <img src="../images/suit-avvaledhu-set.gif" alt="suit" class="same">
+            &#127775; column name suit avvaleda baleda veredi kavala aythe meeru as keyword use cheyyalsinde <br>
+            &#127809; Marvel Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>character_name</th>
+                        <th>name</th>
+                        <th>country</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Iron Man</td>
+                        <td>Tony Stark</td>
+                        <td>USA</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Captain America</td>
+                        <td>Steve Rogers</td>
+                        <td>UK</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Hulk</td>
+                        <td>Bruce Banner</td>
+                        <td>USA</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Black Widow</td>
+                        <td>Natasha romanoff</td>
+                        <td>Australia</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT</span> character_name <span class="yel">AS</span> Avengers</p>
+                <p><span class="yel">FROM </span>Marvel;</p>                
+            </div>
+            &#127809; Outcome: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>Avengers</th>
+                    </tr>
+    
+                    <tr>
+                        <td>Iron Man</td>
+                    </tr>
+
+                    <tr>
+                        <td>Captain America</td>
+                    </tr>
+
+                    <tr>
+                        <td>Hulk</td>
+                    </tr>
+
+                    <tr>
+                        <td>Black Widow</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; column names change cheyyali anukunte meeru ee keyword use chesi cheyyochu <br>
+            &#127809; Customers Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>Customerid</th>
+                        <th>name</th>
+                        <th>age</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Tony</td>
+                        <td>43</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Steve</td>
+                        <td>38</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Bruce</td>
+                        <td>40</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT</span> name, age + <span class="yel">10</span> <span class="yel">AS</span> age_after_ten_years</p>
+                <p><span class="yel">FROM </span>Customers;</p>                
+            </div>
+            &#127809; Outcome: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>name</th>
+                        <th>age_after_ten_years</th>
+                    </tr>
+    
+                    <tr>
+                        <td>Tony</td>
+                        <td>53</td>
+                    </tr>
+
+                    <tr>
+                        <td>Steve</td>
+                        <td>48</td>
+                    </tr>
+
+                    <tr>
+                        <td>Bruce</td>
+                        <td>50</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; ila kooda meeru as keyword ni use cheyyochu, paina unna query age ki 10 add chesi danini new column lo petti display chestundi <br>
+            &#127775; <a target="_blank" class="p" href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_alias_column0">nannu click chey</a> AS keyword practice chese place ki teeskelta <br>
+            </details>
+        </section>
+
+        <!--ORDER BY Clause-->
+        <p id="orderby"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; ORDER BY Clause</summary>
+            <img src="../images/slap-venky.gif" alt="slap" class="same">
+            &#127775; Table lo data ante yela undal ra, oka paddati, ok vision, oka order, oh sequence undali kadamma <br>
+            <img src="../images/svsc-celebrating.gif" alt="svsc" class="same">
+            &#127775; ala data oka order lo pettadaniki manaki help ayyevade ee ORDER BY Clause <br>
+            &#127809; Customers Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>Customerid</th>
+                        <th>name</th>
+                        <th>age</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Tony</td>
+                        <td>43</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Steve</td>
+                        <td>38</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Bruce</td>
+                        <td>40</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Nat</td>
+                        <td>31</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; ippudu ee customers table lo age order lo kavali lets see <br>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT</span> *</p>
+                <p><span class="yel">FROM </span>Customers</p>
+                <p><span class="yel">ORDER BY </span>age;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>Customerid</th>
+                        <th>name</th>
+                        <th>age</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Nat</td>
+                        <td>31</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Steve</td>
+                        <td>38</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Bruce</td>
+                        <td>40</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Tony</td>
+                        <td>43</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; order ante ascending and descending untay ga, ORDER BY Clause by default ascending, if incase descending kavalante DESC keyword use cheste chalu lets <br>
+            &#127809; Customers Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>Customerid</th>
+                        <th>name</th>
+                        <th>age</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Tony</td>
+                        <td>43</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Steve</td>
+                        <td>38</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Bruce</td>
+                        <td>40</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Nat</td>
+                        <td>31</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT</span> *</p>
+                <p><span class="yel">FROM </span>Customers</p>
+                <p><span class="yel">ORDER BY </span>age <span class="yel">DESC</span>;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>Customerid</th>
+                        <th>name</th>
+                        <th>age</th>
+                    </tr>
+                    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Tony</td>
+                        <td>43</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Bruce</td>
+                        <td>40</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Steve</td>
+                        <td>38</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Nat</td>
+                        <td>31</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; <a target="_blank" class="p" href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_orderby">nannu click chey</a> ORDER BY Clause practice chese place ki teeskelta <br>
+            </details>
+        </section>
+
+        <!--LIMIT, TOP and FETCH FIRST Clause-->
+        <p id="limit"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; LIMIT, TOP and FETCH FIRST Clause</summary>
+            &#127775; limit, top, fetch clause use chesi certain limit varaku data ni retrieve cheyyochu, ante migilina valla data manaki avasaram ledu only certain limit varaku vaste chalu anukune situation lo use chestaru <br>
+            &#127775; andari data radu suppose limit 10 anuko first 10 members data ne vastundi <br>
+            &#127809; Disney Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>Character_name</th>
+                        <th>Movie_name</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Elsa</td>
+                        <td>Frozen</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Aana</td>
+                        <td>Frozen</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Ralph</td>
+                        <td>Wreck_it_ralph</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>McQueen</td>
+                        <td>Cars</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>Mei</td>
+                        <td>Turning Red</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p>-- SQL Server, MS Access</p>
+                <p><span class="yel">SELECT TOP 2</span> *</p>
+                <p><span class="yel">FROM </span>Disney;</p>
+                <p>-- below query is similar to above query</p>
+                <p><span class="yel">SELECT TOP 40 PERCENT </span> *</p>
+                <p><span class="yel">FROM </span>Disney;</p>
+                <br>
+                <p>-- MySQL, PostgreSQL, SQLite</p>
+                <p><span class="yel">SELECT </span> *</p>
+                <p><span class="yel">FROM </span>Disney</p>
+                <p><span class="yel">LIMIT 2</span>;</p>
+                <br>
+                <p>-- Oracle</p>
+                <p><span class="yel">SELECT </span> *</p>
+                <p><span class="yel">FROM </span>Disney</p>
+                <p><span class="yel">FETCH FIRST 2 ROWS ONLY</span>;</p>
+            </div>
+            &#127775; mention chesina anni queries ki below table is Outcome <br>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>Character_name</th>
+                        <th>Movie_name</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Elsa</td>
+                        <td>Frozen</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Aana</td>
+                        <td>Frozen</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; first n number of people kakunda manam icchina limit varaku data retrieve cheyyadaniki kooda oka option undi <br>
+            &#127809; Disney Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>Character_name</th>
+                        <th>Movie_name</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Elsa</td>
+                        <td>Frozen</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Aana</td>
+                        <td>Frozen</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Ralph</td>
+                        <td>Wreck_it_ralph</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>McQueen</td>
+                        <td>Cars</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>Mei</td>
+                        <td>Turning Red</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> *</p>
+                <p><span class="yel">FROM </span>Disney</p>
+                <p><span class="yel">LIMIT 2 OFFSET 3</span>;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>Character_name</th>
+                        <th>Movie_name</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>McQueen</td>
+                        <td>Cars</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>Mei</td>
+                        <td>Turning Red</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; OFFSET value ante yenni rows vadileyali ani, limit ante yenni rows retrieve cheyyali ani <br>
+            </details>
+        </section>
+
+        <!--IN, NOT IN Operator-->
+        <p id="in"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; IN, NOT IN Operator</summary>
+            &#127809; IN Operator: <br>
+            &#127775; IN Operator acts like shorthand for multiple where conditions<br>
+            &#127809; Disney Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>Character_name</th>
+                        <th>Movie_name</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Elsa</td>
+                        <td>Frozen</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Aana</td>
+                        <td>Frozen</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Ralph</td>
+                        <td>Wreck_it_ralph</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>McQueen</td>
+                        <td>Cars</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>Mei</td>
+                        <td>Turning Red</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p>-- without using in operator</p>
+                <p><span class="yel">SELECT </span> *</p>
+                <p><span class="yel">FROM </span>Disney</p>
+                <p><span class="yel">WHERE </span>Character_name = <span class="str">'Ralph'</span> <span class="yel">OR </span>Character_name = <span class="str">'McQueen'</span>;</p>
+                <br>
+                <p>-- By using in operator </p>
+                <p><span class="yel">SELECT </span> *</p>
+                <p><span class="yel">FROM </span>Disney</p>
+                <p><span class="yel">WHERE </span>Character_name <span class="yel">IN</span> (<span class="str">'Ralph'</span>, <span class="str">'McQueen'</span>);</p>
+            </div>
+            &#127775; mention chesina two queries kooda similar ye mana work easy cheyyadaniki sql mowa ila operators icchi help chesadu <br>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>Character_name</th>
+                        <th>Movie_name</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Ralph</td>
+                        <td>Wreck_it_ralph</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>McQueen</td>
+                        <td>Cars</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; <a target="_blank" class="p" href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_in">nannu click chey</a> IN Operator practice chese place ki teeskelta <br>
+
+            <hr class="divi">
+            &#127809; NOT IN Operator: <br>
+            &#127775; yes you got it not in mention chesinavi kakunda migilinavi retrieve cheyyamani <br>
+            &#127775; nuvv chala intelligent <br>
+            <img src="../images/mb.gif" alt="mb" class="same">
+            &#127809; Disney Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>Character_name</th>
+                        <th>Movie_name</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Elsa</td>
+                        <td>Frozen</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Aana</td>
+                        <td>Frozen</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Ralph</td>
+                        <td>Wreck_it_ralph</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>McQueen</td>
+                        <td>Cars</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>Mei</td>
+                        <td>Turning Red</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p>-- without using in operator</p>
+                <p><span class="yel">SELECT </span> *</p>
+                <p><span class="yel">FROM </span>Disney</p>
+                <p><span class="yel">WHERE </span>Character_name != <span class="str">'Ralph'</span> <span class="yel">OR </span>Character_name != <span class="str">'McQueen'</span>;</p>
+                <br>
+                <p>-- By using in operator </p>
+                <p><span class="yel">SELECT </span> *</p>
+                <p><span class="yel">FROM </span>Disney</p>
+                <p><span class="yel">WHERE </span>Character_name <span class="yel">NOT IN</span> (<span class="str">'Ralph'</span>, <span class="str">'McQueen'</span>);</p>
+            </div>
+            &#127775; mention chesina two queries kooda similar output istay <br>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>Character_name</th>
+                        <th>Movie_name</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Elsa</td>
+                        <td>Frozen</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Aana</td>
+                        <td>Frozen</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>Mei</td>
+                        <td>Turning Red</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; <a target="_blank" class="p" href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_in_not">nannu click chey</a> NOT IN Operator practice chese place ki teeskelta <br>
+            </details>
+        </section>
+
+        <!--BETWEEN & NOT BETWEEN Operator-->
+        <p id="btw"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; BETWEEN & NOT BETWEEN Operator</summary>
+            <img src="../images/naku-kavali-rakul.gif" alt="naku" class="same">
+            &#127775; valla daddy ni phone konamani adugutundi, papam uncle ki ye phone kanalo telitledu. yela ayina nuvve naku help cheyalani adigaru sare uncle yenta range lo kavali ani adiga 
+            10 to 15k lo choodu babu annaru. ippudu ee operator ni yela vadutano choodandi <br>
+            &#127809; Mobile Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>MobileName</th>
+                        <th>Price</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Samsung Galaxy M33 5G</td>
+                        <td>15,879</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Xiaomi Redmi Note 11</td>
+                        <td>11,999</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Samsung Galaxy F23 5G</td>
+                        <td>13,999</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Realme 9 5G</td>
+                        <td>13,385</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>OnePlus Nord CE 2 Lite 5G</td>
+                        <td>19,600</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> *</p>
+                <p><span class="yel">FROM </span>Mobile</p>
+                <p><span class="yel">WHERE </span>Price <span class="yel">BETWEEN </span><span class="yel">10000 AND 15000</span>;</p>
+            </div>
+            &#127809; Outcome: 
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>MobileName</th>
+                        <th>Price</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Xiaomi Redmi Note 11</td>
+                        <td>11,999</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Samsung Galaxy F23 5G</td>
+                        <td>13,999</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Realme 9 5G</td>
+                        <td>13,385</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; simple ga ah range lo unna Mobiles ni manam retrieve chesam <br>
+            &#127775; ippude uncle message chesaru budget undi anta more than 15k Mobile kavalannaru, deenikikooda manam operator use chesedam <br>
+            &#127809; Mobile Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>MobileName</th>
+                        <th>Price</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Samsung Galaxy M33 5G</td>
+                        <td>15,879</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Xiaomi Redmi Note 11</td>
+                        <td>11,999</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Samsung Galaxy F23 5G</td>
+                        <td>13,999</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Realme 9 5G</td>
+                        <td>13,385</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>OnePlus Nord CE 2 Lite 5G</td>
+                        <td>19,600</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> *</p>
+                <p><span class="yel">FROM </span>Mobile</p>
+                <p><span class="yel">WHERE </span>Price <span class="yel">NOT BETWEEN </span><span class="yel">10000 AND 15000</span>;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>MobileName</th>
+                        <th>Price</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Samsung Galaxy M33 5G</td>
+                        <td>15,879</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>OnePlus Nord CE 2 Lite 5G</td>
+                        <td>19,600</td>
+                    </tr>
+                </table>
+            </div>
+            <img src="../images/excite-rarandoi.gif" alt="excite-rarandoi" class="same">
+            &#127775; Finally uncle problem ni solve chesesam, valla kuthuru kooda chala happy<br>
+            &#127775; <a target="_blank" class="p" href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_between">nannu click chey</a> BETWEEN & NOT BETWEEN Operator practice chese place ki teeskelta <br>
+            </details>
+        </section>
+
+        <!--IS NULL and IS NOT NULL-->
+        <p id="null"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; IS NULL and IS NOT NULL</summary>
+            <img src="../images/sad-eating-eating-alone.gif" alt="sad" class="same">
+            &#127775; ye box lo food ledu ani oka task icchadu valla nanna, marem chestam tanaki help cheddam randi <br>
+            &#127809; Food Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>boxnumber</th>
+                        <th>itemname</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>2 (left of her)</td>
+                        <td class="null">NULL</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>3 (right of her)</td>
+                        <td>chicken</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>1 (infront of her)</td>
+                        <td>rice</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> *</p>
+                <p><span class="yel">FROM </span>Food</p>
+                <p><span class="yel">WHERE </span>itemName <span class="yel">IS NULL</span>;</p>
+            </div>
+            &#127809; Outcome: 
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>boxnumber</th>
+                        <th>itemname</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>2 (left of her)</td>
+                        <td class="null">NULL</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; hamayya manam tanaki kali unna box ento cheppesam by using is null operator, null unna annitini retrieve chestundi <br>
+            &#127775; inthalone valla daddy inko challange vesesadu boxes places change chesi ee sari food unna rendu box lani find cheyyamannaru <br>
+            &#127775; ponle malli help cheddam randi <br>
+            &#127809; Food Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>boxnumber</th>
+                        <th>itemname</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>2 (left of her)</td>
+                        <td class="null">NULL</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>3 (right of her)</td>
+                        <td>chicken</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>1 (infront of her)</td>
+                        <td>rice</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> *</p>
+                <p><span class="yel">FROM </span>Food</p>
+                <p><span class="yel">WHERE </span>itemName <span class="yel">IS NOT NULL</span>;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>boxnumber</th>
+                        <th>itemname</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>3 (right of her)</td>
+                        <td>chicken</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>1 (infront of her)</td>
+                        <td>rice</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; mana help tho eesari kooda tane gelichindi, reaction to her dad <br>
+            <img src="../images/just-kidding-samantha.gif" alt="kidding" class="same">
+            &#127775; <a target="_blank" class="p" href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_is_null">nannu click chey</a> IS NULL and IS NOT NULL practice chese place ki teeskelta <br>
+            </details>
+        </section>
+
+        <!--LIKE and NOT LIKE Operators-->
+        <p id="like"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; LIKE and NOT LIKE Operators</summary>
+            &#127775; manadeggara oka table undi andulo customers details unnay, ma sir ki alphabets tho adukovadam ante istam yela ante table lo r letter tho Start ayye names enti, 
+            e letter tho end ayye names enti, etc.., <br>
+            &#127775; By using like and not like operators we can perform that operations <br>
+            &#127775; ee operator ni where clause tho use chestaru <br>
+            &#127809; User Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Scott</td>
+                        <td>USA</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Sprite</td>
+                        <td>UK</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Robin</td>
+                        <td>Mexico</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Marketse</td>
+                        <td>Canada</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> *</p>
+                <p><span class="yel">FROM </span>User</p>
+                <p><span class="yel">WHERE </span>username <span class="yel">LIKE</span> <span class="str">'Marketse'</span>;</p>
+                <br>
+                <p>-- below query is same as above </p>
+                <p><span class="yel">SELECT </span> *</p>
+                <p><span class="yel">FROM </span>User</p>
+                <p><span class="yel">WHERE </span>username = <span class="str">'Marketse'</span>;</p>
+            </div>
+            &#127809; Outcome: 
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Marketse</td>
+                        <td>Canada</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; % -- ee special character use chesi manaki kavalsina output ni retrieve cheyyochu, ante name oka letter start or end avvali ani <br>
+            &#127809; User Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Scott</td>
+                        <td>USA</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Sprite</td>
+                        <td>UK</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Robin</td>
+                        <td>Mexico</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Marketse</td>
+                        <td>Canada</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> *</p>
+                <p><span class="yel">FROM </span>User</p>
+                <p><span class="yel">WHERE </span>username <span class="yel">LIKE</span> <span class="str">'S%'</span>;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Scott</td>
+                        <td>USA</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Sprite</td>
+                        <td>UK</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; % ee character mundu ye letter pedtaro, ah letter tho start ayye names anni retrieve avtay <br>
+            &#127809; User Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Scott</td>
+                        <td>USA</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Sprite</td>
+                        <td>UK</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Robin</td>
+                        <td>Mexico</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Marketse</td>
+                        <td>Canada</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> *</p>
+                <p><span class="yel">FROM </span>User</p>
+                <p><span class="yel">WHERE </span>username <span class="yel">LIKE</span> <span class="str">'%e'</span>;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Sprite</td>
+                        <td>UK</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Marketse</td>
+                        <td>Canada</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; choosaru ga %e manaki e tho end ayina names ni retrieve chesindi. <br>
+            &#127809; User Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Scott</td>
+                        <td>USA</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Sprite</td>
+                        <td>UK</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Robin</td>
+                        <td>Mexico</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Marketse</td>
+                        <td>Canada</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> *</p>
+                <p><span class="yel">FROM </span>User</p>
+                <p><span class="yel">WHERE </span>username <span class="yel">LIKE</span> <span class="str">'%r%'</span>;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Sprite</td>
+                        <td>UK</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Marketse</td>
+                        <td>Canada</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; name madhayalo kavalsina letter unna chalu ane condition lo %character% idhi use chestaru <br>
+            &#127775; %r% -- returns the name which contains r letter in there name irrespective of position. Whether the letter exist in start, middle or end wherever it is. it will retrieve the results <br>
+            &#127775; suppose i dont want names which starts with s <br>
+            &#127809; User Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Scott</td>
+                        <td>USA</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Sprite</td>
+                        <td>UK</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Robin</td>
+                        <td>Mexico</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Marketse</td>
+                        <td>Canada</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> *</p>
+                <p><span class="yel">FROM </span>User</p>
+                <p><span class="yel">WHERE </span>username <span class="yel">NOT LIKE</span> <span class="str">'S%'</span>;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Robin</td>
+                        <td>Mexico</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Marketse</td>
+                        <td>Canada</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; <a target="_blank" class="p" href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_like">nannu click chey</a> LIKE and NOT LIKE Operators practice chese place ki teeskelta <br>
+            </details>
+        </section>
+
+        <!--Wildcards-->
+        <p id="wildcard"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; Wildcards</summary>
+            &#127775; Wildcards ante manaki kavalsina data ni retrieve cheyyadaniki help ayye characters <br>
+            <p class="ten">1. % Wildcard</p>
+            <p class="ten">2. _ Wildcard</p>
+            <p class="ten">3. [] Wildcard</p>
+            &#127775; ivanni kooda where clause thone use chestam <br>
+            &#127775; meeku word length tho sambhandam lekunda, oka letter tho start, end or ye position lo unna parledu ane condtion lo % ni use chestaru <br>
+            &#127775; previous ga deenikosame cheppukunnam <br>
+            
+            &#127809; _ Wildcard: <br>
+            &#127775; word length lo meru baga particular aythe _ ni use chestaru, ante word length 4 letters ye undali alanti situations lo use chestaru <br>
+            &#127809; User Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Scott</td>
+                        <td>USA</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Sprite</td>
+                        <td>UK</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Robin</td>
+                        <td>Mexico</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Marketse</td>
+                        <td>Canada</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> *</p>
+                <p><span class="yel">FROM </span>User</p>
+                <p><span class="yel">WHERE </span>username <span class="yel">LIKE</span> <span class="str">'U_'</span>;</p>
+            </div>
+            &#127809; Outcome: 
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Sprite</td>
+                        <td>UK</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; USA enduku retrieve avvaledu ante dani length 3 kadha nenu only U_ iccha ante first letter U avvali next okate letter undali ani <br>
+            &#127809; User Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Scott</td>
+                        <td>USA</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Sprite</td>
+                        <td>UK</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Robin</td>
+                        <td>Mexico</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Marketse</td>
+                        <td>UAE</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> *</p>
+                <p><span class="yel">FROM </span>User</p>
+                <p><span class="yel">WHERE </span>username <span class="yel">NOT LIKE</span> <span class="str">'U__'</span>;</p>
+            </div>
+            &#127809; Outcome: 
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Sprite</td>
+                        <td>UK</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Robin</td>
+                        <td>Mexico</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; U__ ee condtion enti ante 3 letters unna word and u tho start ayina word kakunda migatavi retrieve cheyyamani <br>
+
+            &#127809; [] Wildcard: <br>
+            &#127775; it's like range chooste neeke telisipotundi <br>
+            &#127809; User Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Scott</td>
+                        <td>USA</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Sprite</td>
+                        <td>UK</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Robin</td>
+                        <td>Mexico</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Marketse</td>
+                        <td>UAE</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> *</p>
+                <p><span class="yel">FROM </span>User</p>
+                <p><span class="yel">WHERE </span>username <span class="yel">LIKE</span> <span class="str">'U[AS]'</span>;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Scott</td>
+                        <td>USA</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Marketse</td>
+                        <td>UAE</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; first letter U avvali taruvata [AS] ante u taruvata either a or s vacche words ni retrieve chestundi <br>
+            &#127775; naku u and c tho start ayyevi kakunda remaining words kavalante, we can use ! character<br>
+            &#127809; User Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Scott</td>
+                        <td>USA</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Sprite</td>
+                        <td>UK</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Robin</td>
+                        <td>Mexico</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Marketse</td>
+                        <td>Canada</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> *</p>
+                <p><span class="yel">FROM </span>User</p>
+                <p><span class="yel">WHERE </span>username <span class="yel">LIKE</span> <span class="str">'[!UC]%'</span>;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Robin</td>
+                        <td>Mexico</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; SQL Server:
+            <p class="ten2">
+                1. % -- zero or more characters <br>
+                2. _ -- single character <br>
+                3. [] -- single character within the brackets <br>
+                4. ^ -- any character not within the brackets <br>
+                5. - -- single character within a range
+            </p>
+            &#127809; PostgreSQL and MySQL:
+            <p class="ten2">
+                1. % -- zero or more characters <br>
+                2. _ -- single character 
+            </p>
+            &#127809; Oracle: 
+            <p class="ten2">
+                1. % -- zero or more characters <br>
+                2. _ -- means single character <br>
+                3. [] -- single character within the brackets <br>
+                4. {} -- escaped character
+            </p>
+            </details>
+        </section>
+
+        <!--UNION Operator-->
+        <p id="union"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; UNION Operator</summary>
+            &#127775; union operator use chesi at a time two tables lo unna rows ni retrieve cheyyochu, union chesetappudu repeated values ni ignore chestundi  <br>
+            &#127775; but ee operator use cheyyalante two tables must have same number of columns with same order of columns and having same data types of columns in both tables <br>
+            &#127809; Paidcustomers Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Scott</td>
+                        <td>USA</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Sprite</td>
+                        <td>UK</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Robin</td>
+                        <td>Mexico</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Marketse</td>
+                        <td>Canada</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Unpaidcustomers Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Leverling</td>
+                        <td>Argentina</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Dodsworth</td>
+                        <td>Mexico</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Suyama</td>
+                        <td>Sweden</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Peacock</td>
+                        <td>USA</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> country</p>
+                <p><span class="yel">FROM </span>Paidcustomers</p>
+                <p><span class="yel">UNION</span></p>
+                <p><span class="yel">SELECT </span> country</p>
+                <p><span class="yel">FROM </span>Unpaidcustomers;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>country</th>
+                    </tr>
+
+                    <tr>
+                        <td>Argentina</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Canada</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Mexico</td>
+                    </tr>
+
+                    <tr>
+                        <td>Sweden</td>
+                    </tr>
+
+                    <tr>
+                        <td>UK</td>
+                    </tr>
+
+                    <tr>
+                        <td>USA</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; meeku duplicate values kooda kavali ante UNION ALL operator ni use chestaru <br>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> country</p>
+                <p><span class="yel">FROM </span>Paidcustomers</p>
+                <p><span class="yel">UNION ALL</span></p>
+                <p><span class="yel">SELECT </span> country</p>
+                <p><span class="yel">FROM </span>Unpaidcustomers;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>country</th>
+                    </tr>
+
+                    <tr>
+                        <td>USA</td>
+                    </tr>
+    
+                    <tr>
+                        <td>UK</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Mexico</td>
+                    </tr>
+
+                    <tr>
+                        <td>Canada</td>
+                    </tr>
+
+                    <tr>
+                        <td>Argentina</td>
+                    </tr>
+
+                    <tr>
+                        <td>Mexico</td>
+                    </tr>
+
+                    <tr>
+                        <td>Sweden</td>
+                    </tr>
+
+                    <tr>
+                        <td>USA</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; union operator repeated values ni neglet chestundi, kani konchem slow untundi <br>
+            &#127775; union all operator repeated values ni kooda retrieve chestundi kani speed untundi <br>
+            &#127775; <a target="_blank" class="p" href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_union">nannu click chey</a> UNION Operator practice chese place ki teeskelta <br>
+            </details>
+        </section>
+
+        <!--ANY and ALL Operators-->
+        <p id="any"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; ANY and ALL Operators</summary>
+            &#127775; Two tables ni compare chesi vatilo match ayina values ni retrieve cheyyadaniki ee operators ni use chestam <br>
+            &#127809; Paidcustomers Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>age</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Scott</td>
+                        <td>30</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Sprite</td>
+                        <td>43</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Robin</td>
+                        <td>28</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Unpaidcustomers Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>age</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Leverling</td>
+                        <td>39</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Dodsworth</td>
+                        <td>28</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Suyama</td>
+                        <td>41</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> *</p>
+                <p><span class="yel">FROM </span>Paidcustomers</p>
+                <p><span class="yel">WHERE </span>age = <span class="yel">ANY </span>(</p>
+                <p class="ten"><span class="yel">SELECT </span>age</p>
+                <p class="ten"><span class="yel">FROM</span> Unpaidcustomers</p>
+                <p>);</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>age</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Robin</td>
+                        <td>28</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; Paidcustomers and Unpaidcustomers table lo match ayina age ni retrieve chestundi <br>
+            &#127775; ee operators ni comparison operators tho use cheyyochu <br>
+            &#127775; meru observe cheste oka query lo ne inkoka query ni rasam deenine subquery ani antaru <br>
+            &#127809; Paidcustomers Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>age</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Scott</td>
+                        <td>30</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Sprite</td>
+                        <td>43</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Robin</td>
+                        <td>28</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Unpaidcustomers Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>age</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Leverling</td>
+                        <td>39</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Dodsworth</td>
+                        <td>28</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Suyama</td>
+                        <td>41</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> *</p>
+                <p><span class="yel">FROM </span>Paidcustomers</p>
+                <p><span class="yel">WHERE </span>age > <span class="yel">ALL </span>(</p>
+                <p class="ten"><span class="yel">SELECT </span>age</p>
+                <p class="ten"><span class="yel">FROM</span> Unpaidcustomers</p>
+                <p>);</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>age</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Sprite</td>
+                        <td>43</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; Unpaidcustomers table lo unna anni ages kanna Paidcustomers table lo okadi age yekkuva, ah condition ni satisfy chesindi kabatte data retrieve ayyindi <br>
+            &#127775; simple ga cheppalante ANY ante yevado okkadu ayina chalu kani ALL ante confirm ga nuv icchina condition ah table lo unna andariki satisfy cheyyali <br>
+            &#127775; <a target="_blank" class="p" href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_union">nannu click chey</a> ANY and ALL Operators practice chese place ki teeskelta <br>
+            </details>
+        </section>
+
+        <!--CASE Statement-->
+        <p id="case"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; CASE Statement</summary>
+            &#127775; meeku if else telusu kadha condition true aythe if block lo code run avtundi lekapte else block lo code run avtundi <br>
+            &#127775; same way case statement use chesi conditions rayocchu, condition satisfy cheste mention chesina message manam create chesina column lo display avtundi <br>
+            &#127775; condition false aythe else lo unna message new column lo display avtundi <br>
+            &#127809; Customers Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>age</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Leverling</td>
+                        <td>39</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Dodsworth</td>
+                        <td>28</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Suyama</td>
+                        <td>41</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Scott</td>
+                        <td>30</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> userid, username,</p>
+                <p><span class="yel">CASE </span></p>
+                <p class="ten"><span class="yel">WHEN  </span>age &#62; <span class="yel">30 THEN</span> <span class="str">'Granted'</span></p>
+                <p><span class="yel">END AS</span> Permission</p>
+                <p><span class="yel">FROM</span> Customers;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>Permission</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Leverling</td>
+                        <td>Permission Granted</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Suyama</td>
+                        <td>Permission Granted</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; end as ani undi kadha adhe manam create chese column, named as Permission, age greater than 30 unnavallaki mention chesina message create chesina new column lo display chestundi <br>
+            &#127775; multiple conditions kooda ivochu lets see <br>
+            &#127809; Customers Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>age</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Leverling</td>
+                        <td>39</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Dodsworth</td>
+                        <td>28</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Suyama</td>
+                        <td>41</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Scott</td>
+                        <td>30</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> userid, username,</p>
+                <p><span class="yel">CASE </span></p>
+                <p class="ten"><span class="yel">WHEN  </span>age = <span class="yel">30 THEN</span> <span class="str">'Granted with id as proof'</span></p>
+                <p class="ten"><span class="yel">WHEN  </span>age &#62; <span class="yel">30 THEN</span> <span class="str">'Granted'</span></p>
+                <p class="ten"><span class="yel">ELSE</span> <span class="str">'Not Granted'</span></p>
+                <p><span class="yel">END AS</span> Permission</p>
+                <p><span class="yel">FROM</span> Customers;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>Permission</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Leverling</td>
+                        <td>Granted</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Dodsworth</td>
+                        <td>Not Granted</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Suyama</td>
+                        <td>Granted</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Scott</td>
+                        <td>Granted with id as proof</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; ila multiple columns icchi ee statement ni use cheskovachu <br>
+            &#127775; <a target="_blank" class="p" href="https://www.w3schools.com/sql/trymysql.asp?filename=trysql_case">nannu click chey</a> CASE Statement practice chese place ki teeskelta <br>
+            </details>
+        </section>
+        
+        &#127775; Finally we finished DQL concept
+        <img src="../images/free.png" alt="free" class="same">
+        &#127775; nadi kooda same feeling. &#128518;
+    </main>
+
+
+    <footer>
+        <h1 class="head"><a class="an" href="../html files/SQL Constraints.html"><img src="../images/before.png" alt="before" height="50px" width="50px"></a> <a href="../index.html#top2" class="an"><img src="../images/home.png" alt="home" height="50px" width="50px"></a> <a href="../html files/SQL Joins.html" class="an"><img src="../images/next.png" alt="next" height="50px" width="50px"></a> 
+        </h1>
+        <a href="#top"><img src="../images/up-arrow.png" alt="up" class="bottom" width="60px" height="60px"></a>
+    </footer>
+    <div class="lite2">
+        <p>Copyright &#9400; 2022 All Rights Reserved | Polamarasetti Jayakrishna</p>
+    </div>
+</body>
+</html>     

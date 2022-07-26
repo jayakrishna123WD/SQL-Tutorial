@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--font-family: 'Inconsolata', monospace;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap" rel="stylesheet">
+
+    <!--font-family: 'Nixie One', cursive;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nixie+One&display=swap" rel="stylesheet">
+
+    <!--font-family: 'Red Hat Mono', monospace;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="../styles/database.css">
+    <title>SQL Database</title>
+    <link rel="icon" type="image/x-icon" href="/images/sql icon.png">
+    <meta charset="UTF-8">
+    <meta name="description" content="SQL Database">
+    <meta name="keywords" content="SQL Database, Create, alter, drop">
+    <meta name="author" content="Polamarasetti Jayakrishna">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="sql">
+        <img src="../images/sql icon.png" alt="sql" class="sql" width="50px" height="50px">
+    </div>
+
+    <header>
+        <h1 class="head"><a class="an" href="../html files/Introduction to SQL.html"><img src="../images/before.png" alt="before" height="50px" width="50px"></a> <a href="../index.html#top2" class="an"><img src="../images/home.png" alt="home" height="50px" width="50px"></a> <a href="../html files/SQL Database manipulation.html" class="an"><img src="../images/next.png" alt="next" height="50px" width="50px"></a> 
+    </h1>
+    <h1 class="cen">SQL Database</h1>
+    </header>
+
+    <article>
+        <p>
+            &#127775; Data table lo untundi, table database lo untundi, database RDBMS software lo untundi <br>
+            &#127775; Database lekunda table yela create chestav andulo data yela pedatav bangaram. <br>
+            &#127775; Database create cheyyadaniki manaki help chesevade create command. <br>
+            &#127775; padhandi velli database, tables create cheddam <br>
+            <img src="../images/lets-do-kummudu.gif" alt="lets-do-kummudu" class="same">
+        </p>
+    </article>
+    <article class="ten">
+        <p id="top"></p>
+        <h2>List of Topics: </h2>
+        <div class="ten2 haha">
+            &#127809; <a href="#createD">Create Database Command</a ><br>
+            &#127809; <a href="#createT">Create Table Command</a> <br>
+            &#127809; <a href="#dropD">Drop Database Command</a> <br>
+            &#127809; <a href="#alterT">Alter Table Command</a> <br>
+            &#127809; <a href="#trunc">Truncate Table Command</a>
+        </div>
+    </article>
+    <main>
+        <!--Create Database-->
+        <p id="createD"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; CREATE DATABASE Statement</summary>
+            &#127775; Multiple Statements ni semicolon seperate chestundi, konni RDBMS softwares lo pettakapoyina parledu. For good practice semicolon pedithe better. <br>
+            &#127775; SQL is not case sensitive, kabatti uppercase or lowercase yedi use chesina parledu but for code readability we mention all commands, functions, Statements, logical operators, joins, etc.., in uppercase <br>
+            <div class="code">
+                <p><span class="yel">CREATE DATABASE</span> Manade_idanta;</p>
+            </div>
+            <p class="ten">&#127809; <b>CREATE</b> command use chesi Manade_idanta ane database ni create chesam indulo tables store cheskovacchu manam </p>
+            &#127775; okavela Manade_idanta database, software lo munde unte manaki error vastundi because already ah database undi kadha anduke. <br>
+            &#127775; <b>IF NOT EXISTS</b>, ee command em chestundante first mention chesina name tho yemaina databases unnayo ledo choostundi, if lekapote create chestundi unte neglect chestundi. <br>
+            <div class="code">
+                <p><span class="yel">CREATE DATABASE IF NOT EXISTS</span> Manade_idanta;</p>
+            </div>
+            &#127775; manam yelano create chesasam ga, so malli create cheyyadu. <br>
+            &#127775; Ippudu manam software lo yennni databases unnayo telusukovalante SHOW command use chestam<br>
+            <div class="code">
+                <p><span class="yel">SHOW DATABASES</span>;</p>
+            </div>
+            &#127775; Two databases unnay meeru first one lo unna tables ni access cheyyali, appudu manam USE statement ni use cheyyali <br>
+            <div class="code">
+                <p><span class="yel">USE</span> Manade_idanta;</p>
+            </div>
+            &#127775; Ippudu Manade_idanta database lo unna tables ni access cheyyochu, if second database name Books anukondi danini use cheyyalante USE pakkana name ni replace chestam ila databases switch avvochu <br>
+            <div class="code">
+                <p><span class="yel">USE</span> Books;</p>
+            </div>
+            </details>
+        </section>
+
+
+        <!--Create Table-->
+        <p id="createT"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; CREATE TABLE Statement</summary>
+            &#127775; create table statement use chesi database lo table ni create chestam <br>
+            &#127775; Let's create table which stores user details <br>
+            <div class="code">
+                <p><span class="yel">USE</span> Manade_idanta;</p>
+                <p><span class="yel">CREATE TABLE</span> UserDetails (</p>
+                <p class="ten">id <span class="var">int</span>,</p>
+                <p class="ten">firstname <span class="var">varchar</span>(<span class="yel">30</span>),</p>
+                <p class="ten">lastname <span class="var">varchar</span>(<span class="yel">30</span>),</p>
+                <p class="ten">city <span class="var">text</span>,</p>
+                <p class="ten">phone <span class="var">varchar</span>(<span class="yel">10</span>)</p>
+                <p>);</p>
+            </div>
+            &#127775; ee query ni execute cheste Manade_idanta database lo UserDetails table create avtundi, manam table lo columns id, firstname, lastname, city, phone ni create chesam. Visit <a class="hi" href="../html files/Introduction to SQL.html#Datatypes">Datatypes</a> for clarification <br>
+            &#127775; using id we can identify users uniquely because that was unique for every user, we'll discuss about that in comming sessions <br>
+            &#127775; if UserDetails tho table already unte  error vastundi, deeniki solution ye IF NOT EXISTS command. <br>
+            <div class="code">
+                <p><span class="yel">USE</span> Manade_idanta;</p>
+                <p><span class="yel">CREATE TABLE IF NOT EXISTS</span> ComedyMovies (</p>
+                <p class="ten">id <span class="var">int</span>,</p>
+                <p class="ten">MovieName <span class="var">varchar</span>(<span class="yel">30</span>),</p>
+                <p class="ten">ReleaseDate <span class="var">int</span></p>
+                <p>);</p>
+            </div>
+            &#127775; ComedyMovies tho ye table ledu kabatti query execute avtundi table create avtundi <br>
+            </details>
+
+        </section>
+
+
+        <!--Drop Database-->
+        <p id="dropD"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; DROP DATABASE Command</summary>
+            <img src="../images/irritate.gif" alt="irritate" class="same">
+            &#127775; sonusood feels like oka pakka storage leka nenunte nuvvu extra ga database lu create chestunnava <br>
+            &#127775; Me : anduke database delete chesesa oh meeku telidu kadha yela delete chesano let's see <br>
+            <div class="code">
+                <p><span class="yel">DROP DATABASE</span> Books;</p>
+            </div>
+            &#127775; ee query execute aythe Books lo unna tables and total Books database delete ayipotundi <br>
+            &#127775; Only table okate delete cheyyali ante Drop table command use chestam 
+            <div class="code">
+                <p><span class="yel">DROP TABLE</span> ComedyMovies;</p>
+            </div>
+            &#127775; ComedyMovies table delete ayipotundi. <br>
+            &#127775; Database lo leni tables ni delete cheste error vastundi, solution is meeku telusu 
+            by using IF EXISTS command <br>
+            <div class="code">
+                <p><span class="yel">DROP TABLE IF EXISTS</span> ComedyMovies;</p>
+            </div>
+            &#127775; ee table already delete ayipoyindi kadha. So, query execute ayina if EXISTS command valla error raadu <br>
+            </details>
+        </section>
+
+
+        <!--ALTER TABLE Statement-->
+        <p id="alterT"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; ALTER TABLE Statement</summary>
+            &#127775; ee command use chesi columns ni add, modify, rename and delete cheyocchu & table name kooda change cheyocchu <br>
+            &#127775; Adding new column into a table
+            <div class="code">
+                <p>-- adding single column</p>
+                <p><span class="yel">ALTER TABLE</span> UserDetails </p>
+                <p><span class="yel">ADD</span> pincode <span class="var">varchar</span>(<span class="yel">7</span>);</p>
+                <p>-- adding more than one column at a time</p>
+                <p><span class="yel">ALTER TABLE</span> UserDetails </p>
+                <p><span class="yel">ADD</span> pincode <span class="var">varchar</span>(<span class="yel">7</span>), TokenNumber <span class="var">int</span>;</p>
+            </div>
+            &#127775; column name changing in table <br>
+            <div class="code">
+                <p><span class="yel">ALTER TABLE</span> UserDetails </p>
+                <p><span class="yel">RENAME COLUMN</span> TokenNumber <span class="yel">TO</span> T_num;</p>
+            </div>
+            &#127775; I want to increase the length of firstname in UserDetails table. we use modify or alter column command, kaani different RDBMS lo different syntax untundi lets see
+            <div class="code">
+                <p>-- SQL Server</p>
+                <p><span class="yel">ALTER TABLE</span> UserDetails </p>
+                <p><span class="yel">ALTER COLUMN</span> firstname <span class="var">varchar</span>(<span class="yel">25</span>);</p>
+                <br>
+                <p>-- MySQL</p>
+                <p><span class="yel">ALTER TABLE</span> UserDetails </p>
+                <p><span class="yel">MODIFY COLUMN</span> firstname <span class="var">varchar</span>(<span class="yel">25</span>);</p>
+                <br>
+                <p>-- Oracle</p>
+                <p><span class="yel">ALTER TABLE</span> UserDetails </p>
+                <p><span class="yel">MODIFY</span> firstname <span class="var">varchar</span>(<span class="yel">25</span>);</p>
+                <br>
+                <p>-- PostgreSQL</p>
+                <p><span class="yel">ALTER TABLE</span> UserDetails </p>
+                <p><span class="yel">ALTER COLUMN</span> firstname <span class="yel">TYPE </span><span class="var">varchar</span>(<span class="yel">25</span>);</p>
+            </div>
+            &#127775; Delete a column in table <br>
+            <div class="code">
+                <p><span class="yel">ALTER TABLE</span> UserDetails </p>
+                <p><span class="yel">DROP COLUMN</span> T_num;</p>
+            </div>
+            &#127775; Delete multiple column in table <br>
+            <div class="code">
+                <p>-- SQL Server</p>
+                <p><span class="yel">ALTER TABLE</span> UserDetails </p>
+                <p><span class="yel">DROP COLUMN</span> T_num, pincode, phone;</p>
+                <br>
+                <p>-- MySQL</p>
+                <p><span class="yel">ALTER TABLE</span> UserDetails </p>
+                <p><span class="yel">DROP </span> T_num, <span class="yel">DROP </span>pincode, <span class="yel">DROP </span>phone;</p>
+                <br>
+                <p>-- Oracle</p>
+                <p><span class="yel">ALTER TABLE</span> UserDetails </p>
+                <p><span class="yel">DROP</span> (T_num, pincode, phone);</p>
+                <br>
+                <p>-- PostgreSQL</p>
+                <p><span class="yel">ALTER TABLE</span> UserDetails </p>
+                <p><span class="yel">DROP COLUMN</span> T_num, <span class="yel">DROP COLUMN </span>pincode, <span class="yel">DROP COLUMN </span>phone;</p>
+            </div>
+            &#127775; changing the name of table <br>
+            <div class="code">
+                <p><span class="yel">ALTER TABLE</span> UserDetails </p>
+                <p><span class="yel">RENAME TO</span> YourNameDetails;</p>
+            </div>
+            </details>
+        </section>
+
+
+        <!--Truncate Table in sql-->
+        <p id="trunc"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; Truncate Table</summary>
+            &#127775; Table lo unna rows anni delete ayipovali but table matram database lo undalante truncate command use chestam 
+            table lo data antha delete chestundi but table aythe database lo untundi <br>
+            <div class="code">
+                <p><span class="yel">TRUNCATE TABLE</span> YourNameDetails;</p>
+            </div>
+            &#127775; YourNameDetails table aythe untundi kani data em undadu <br>
+            </details>
+        </section>
+
+
+        &#127775; Finally we finished <Strong>Data Definition Language</Strong>, which is one of the core concepts of sql <br>
+        &#127775; Database, table create cheyylante indulo commands ne use chestam.<br>
+        &#127775; coming sessions lo migata core concepts of sql choodam <br>
+        &#127775; Ready ah! <br>
+        <img src="../images/lets rock.gif" alt="letsrock" class="same">
+    </main>
+    <footer>
+        <h1 class="head"><a class="an" href="../html files/Introduction to SQL.html"><img src="../images/before.png" alt="before" height="50px" width="50px"></a> <a href="../index.html#top2" class="an"><img src="../images/home.png" alt="home" height="50px" width="50px"></a> <a href="../html files/SQL Database manipulation.html" class="an"><img src="../images/next.png" alt="next" height="50px" width="50px"></a> 
+        </h1>
+        <a href="#top"><img src="../images/up-arrow.png" alt="up" class="bottom" width="60px" height="60px"></a>
+    </footer>
+    <div class="lite2">
+        <p>Copyright &#9400; 2022 All Rights Reserved | Polamarasetti Jayakrishna</p>
+    </div>
+</body>
+</html>

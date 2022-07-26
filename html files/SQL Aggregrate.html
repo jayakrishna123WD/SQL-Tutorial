@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--font-family: 'Inconsolata', monospace;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap" rel="stylesheet">
+
+    <!--font-family: 'Nixie One', cursive;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nixie+One&display=swap" rel="stylesheet">
+
+    <!--font-family: 'Red Hat Mono', monospace;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="../styles/database.css">
+    <title>SQL Aggregate Functions</title>
+    <link rel="icon" type="image/x-icon" href="/images/sql icon.png">
+    <meta charset="UTF-8">
+    <meta name="description" content="SQL Aggregate Functions">
+    <meta name="keywords" content="SQL Aggregate Functions, min, max, sum, avg">
+    <meta name="author" content="Polamarasetti Jayakrishna">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="sql">
+        <img src="../images/sql icon.png" alt="sql" class="sql" width="50px" height="50px">
+    </div>
+
+    <header>
+        <h1 class="head"><a class="an" href="../html files/SQL Joins.html"><img src="../images/before.png" alt="before" height="50px" width="50px"></a> <a href="../index.html#top2" class="an"><img src="../images/home.png" alt="home" height="50px" width="50px"></a> <a href="../html files/SQL DCL & TCL.html" class="an"><img src="../images/next.png" alt="next" height="50px" width="50px"></a> 
+    </h1>
+    <p id="top"></p>
+    <h1 class="cen">SQL Aggregate Functions</h1>
+    </header>
+
+    <article class="ten">
+        <p id="top"></p>
+        <h2>List of Topics: </h2>
+        <div class="ten2 haha">
+            &#127809; <a href="#min">Min()</a> <br>
+            &#127809; <a href="#max">Max()</a> <br>
+            &#127809; <a href="#count">Count()</a ><br>
+            &#127809; <a href="#sum">Sum()</a> <br>
+            &#127809; <a href="#avg">Avg()</a> <br>
+            &#127809; <a href="#group">GROUP BY Clause</a> <br>
+            &#127809; <a href="#have">HAVING Clause</a> <br>
+        </div>
+    </article>
+
+    <main> 
+        &#127775; introduction avasaram leni topic. <br>
+
+        <!--Min()-->
+        <p id="min"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; Min() Function</summary>
+            &#127809; Users Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>age</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>23</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>43</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>39</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>18</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>33</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT MIN</span> (age)</p>
+                <p><span class="yel">FROM </span>Users;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>MIN (age)</th>
+                    </tr>
+
+                    <tr>
+                        <td>18</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; column name MIN (age) ani kakunda meeku nacchindi pettukovacchu telisinde ga alias use cheyyandi <br>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT MIN</span> (age) <span class="yel">AS</span> Minimum_Age</p>
+                <p><span class="yel">FROM </span>Users;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>Minimum_Age</th>
+                    </tr>
+
+                    <tr>
+                        <td>18</td>
+                    </tr>
+                </table>
+            </div>
+            </details>
+        </section>
+
+        <!--Max()-->
+        <p id="max"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; Max() Function</summary>
+            &#127809; Users Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>age</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>23</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>43</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>39</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>18</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>33</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT MAX</span> (age) <span class="yel">AS</span> Maximum_Age</p>
+                <p><span class="yel">FROM </span>Users;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>Maximum_Age</th>
+                    </tr>
+
+                    <tr>
+                        <td>43</td>
+                    </tr>
+                </table>
+            </div>
+            </details>
+        </section>
+
+        <!--Count()-->
+        <p id="count"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; Count() Function</summary>
+            &#127775; ee Functions use chesi sepcific condition ni satisfy chesedi yentamandi ani manam find out cheyyochu <br>
+            &#127809; Users Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>age</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>23</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>43</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>39</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>18</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>33</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT COUNT</span> (age) <span class="yel">AS</span> no_of_users</p>
+                <p><span class="yel">FROM </span>Users</p>
+                <p><span class="yel">WHERE </span>age &#62; <span class="yel">25</span>;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>no_of_users</th>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; table lo yenni rows unnayo teliyalante ila <br>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT COUNT</span> (*) <span class="yel">AS</span> no_of_users</p>
+                <p><span class="yel">FROM </span>Users;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>no_of_users</th>
+                    </tr>
+
+                    <tr>
+                        <td>5</td>
+                    </tr>
+                </table>
+            </div>
+            </details>
+        </section>
+
+        <!--Sum()-->
+        <p id="sum"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; Sum() Function</summary>
+            &#127809; Users Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>price</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>223</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>543</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>739</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>418</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>133</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT SUM</span> (price) <span class="yel">AS</span> Total_price</p>
+                <p><span class="yel">FROM </span>Users;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>Total_price</th>
+                    </tr>
+
+                    <tr>
+                        <td>2056</td>
+                    </tr>
+                </table>
+            </div>
+            </details>
+        </section>
+
+        <!--Avg()-->
+        <p id="avg"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; Avg() Function</summary>
+            &#127809; Users Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>price</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>223</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>543</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>739</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>418</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>133</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT AVG</span> (price) <span class="yel">AS</span> Average_price</p>
+                <p><span class="yel">FROM </span>Users;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>Average_price</th>
+                    </tr>
+
+                    <tr>
+                        <td>411.2</td>
+                    </tr>
+                </table>
+            </div>
+            </details>
+        </section>
+
+        <!--GROUP BY-->
+        <p id="group"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; GROUP BY Clause</summary>
+            &#127775; GROUP BY clause use chesi oka value table lo yenni sarlu repeat ayyindo telusukovachu with combination of count function  <br>
+            &#127775; example chooste meke idea vacchestundi <br>
+            &#127809; Customers Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>Customerid</th>
+                        <th>name</th>
+                        <th>country</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Tony</td>
+                        <td>USA</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Steve</td>
+                        <td>UK</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Bruce</td>
+                        <td>USA</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Nat</td>
+                        <td>UAE</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> country, <span class="yel">COUNT </span>(*) <span class="yel">AS</span> count</p>
+                <p><span class="yel">FROM </span>Customers</p>
+                <p><span class="yel">GROUP BY </span>country;</p>
+            </div>
+            &#127809; Customers Table:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>country</th>
+                        <th>count</th>
+                    </tr>
+    
+                    <tr>
+                        <td>UK</td>
+                        <td>1</td>
+                    </tr>
+    
+                    <tr>
+                        <td>UAE</td>
+                        <td>1</td>
+                    </tr>
+    
+                    <tr>
+                        <td>USA</td>
+                        <td>2</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; <a target="_blank" class="p" href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_groupby">nannu click chey</a> GROUP BY clause practice chese place ki teeskelta <br>
+            </details>
+        </section>
+
+        <!--HAVING Clause-->
+        <p id="have"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; HAVING Clause</summary>
+            &#127775; meeru HAVING clause telusukune mundu first HAVING vs WHERE telusukovali <br>
+            &#127809; HAVING vs WHERE: <br>
+            <div class="t" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>HAVING</th>
+                        <th>WHERE</th>
+                    </tr>
+    
+                    <tr>
+                        <td>Possible to check condition on multiple rows at a time</td>
+                        <td>Possible to check condition for only one row at a time</td>
+                    </tr>
+    
+                    <tr>
+                        <td>We can use these Aggregate functions with this clause</td>
+                        <td>This clause can't support Aggregate functions</td>
+                    </tr>
+    
+                    <tr>
+                        <td>After execution of GROUP BY clause this clause will get executed</td>
+                        <td>GROUP BY clause will executed after execution of this clause</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Customers Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>Customerid</th>
+                        <th>name</th>
+                        <th>country</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Tony</td>
+                        <td>USA</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Steve</td>
+                        <td>UK</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Bruce</td>
+                        <td>USA</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Nat</td>
+                        <td>UAE</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span><span class="yel">COUNT </span>(Customerid) <span class="yel">AS</span> count, country</p>
+                <p><span class="yel">FROM </span>Customers</p>
+                <p><span class="yel">GROUP BY </span>country</p>
+                <p><span class="yel">HAVING COUNT</span> (Customerid) &#60; <span class="yel">2</span>;</p>
+            </div>
+            &#127809; Customers Table:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>count</th>
+                        <th>country</th>
+                    </tr>
+    
+                    <tr>
+                        <td>1</td>
+                        <td>UK</td>
+                    </tr>
+    
+                    <tr>
+                        <td>1</td>
+                        <td>UAE</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; <a target="_blank" class="p" href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_having">nannu click chey</a> HAVING Clause practice chese place ki teeskelta <br>
+            </details>
+        </section>
+        <img src="../images/order.png" alt="order" class="same">
+        &#127775; You must have to follow this order while writing queries, sequence marchipokandi<br>
+    </main>
+
+
+    <footer>
+        <h1 class="head"><a class="an" href="../html files/SQL Joins.html"><img src="../images/before.png" alt="before" height="50px" width="50px"></a> <a href="../index.html#top2" class="an"><img src="../images/home.png" alt="home" height="50px" width="50px"></a> <a href="../html files/SQL DCL & TCL.html" class="an"><img src="../images/next.png" alt="next" height="50px" width="50px"></a> 
+        </h1>
+        <a href="#top"><img src="../images/up-arrow.png" alt="up" class="bottom" width="60px" height="60px"></a>
+    </footer>
+    <div class="lite2">
+        <p>Copyright &#9400; 2022 All Rights Reserved | Polamarasetti Jayakrishna</p>
+    </div>
+</body>
+</html>     

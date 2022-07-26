@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--font-family: 'Inconsolata', monospace;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap" rel="stylesheet">
+
+    <!--font-family: 'Nixie One', cursive;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nixie+One&display=swap" rel="stylesheet">
+
+    <!--font-family: 'Red Hat Mono', monospace;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="../styles/database.css">
+    <title>SQL Database manipulation</title>
+    <link rel="icon" type="image/x-icon" href="/images/sql icon.png">
+    <meta charset="UTF-8">
+    <meta name="description" content="SQL Database manipulation">
+    <meta name="keywords" content="SQL Database manipulation, insert data into table, updating data, delete data in table">
+    <meta name="author" content="Polamarasetti Jayakrishna">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="sql">
+        <img src="../images/sql icon.png" alt="sql" class="sql" width="50px" height="50px">
+    </div>
+
+    <header>
+        <h1 class="head"><a class="an" href="../html files/SQL Database.html"><img src="../images/before.png" alt="before" height="50px" width="50px"></a> <a href="../index.html#top2" class="an"><img src="../images/home.png" alt="home" height="50px" width="50px"></a> <a href="../html files/SQL Constraints.html" class="an"><img src="../images/next.png" alt="next" height="50px" width="50px"></a> 
+    </h1>
+    <p id="top"></p>
+    <h1 class="cen">SQL Database manipulation</h1>
+    </header>
+
+    <article class="ten">
+        <p id="top"></p>
+        <h2>List of Topics: </h2>
+        <div class="ten2 haha">
+            &#127809; <a href="#insert">INSERT INTO Statement</a ><br>
+            &#127809; <a href="#update">UPDATE Statement</a> <br>
+            &#127809; <a href="#delete">Delete Statement</a> <br>
+        </div>
+    </article>
+
+    <main>
+        &#127775; <strong>Data Manipulation Language</strong>, ante table lo unna data ni change cheyyochu <br>
+        &#127775; indulo 3 commands untay, data table lo pettadaniki insert, table lo data ni change cheyyadaniki update, table lo data ni delete cheyyadaniki delete commands use chestam <br>
+        &#127775; Previous ga YourNameDetails table ni manam truncate chesam, ofcourse andulo data em ledu anukondi ippudu ah table lo data ni add cheddam <br>
+        &#127775; table name change cheddham <br>
+        <div class="code">
+            <p><span class="yel">ALTER TABLE</span> YourNameDetails </p>
+            <p><span class="yel">RENAME TO</span> UserDetails;</p>
+        </div>
+        <!--insert into -->
+        <p id="insert"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; INSERT INTO Statement</summary>
+            &#127775; gurtunnay ga ah table lo columns yemunnayo<br>
+            <img src="../images/confuse.gif" alt="confuse" class="same">
+            &#127775; sare sare le nen cheptha -&#62; id, firstname, lastname, city. Lets add some data into table <br>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">INSERT INTO</span> UserDetails(id, firstname, lastname, city) </p>
+                <p><span class="yel">VALUES</span></p>
+                <p>(<span class="yel">1</span>, <span class="str">'Tony'</span>, <span class="str">'Stark'</span>, <span class="str">'Malibu'</span>),</p>
+                <p>(<span class="yel">2</span>, <span class="str">'Steve'</span>, <span class="str">'Rogers'</span>, <span class="str">'Brooklyn'</span>),</p>
+                <p>(<span class="yel">3</span>, <span class="str">'Bruce'</span>, <span class="str">'Banner'</span>, <span class="str">'Dayton'</span>),</p> 
+                <p>(<span class="yel">4</span>, <span class="str">'Natasha'</span>, <span class="str">'Romanoff'</span>, <span class="str">'Red Room'</span>),</p> 
+                <p>(<span class="yel">5</span>, <span class="str">'Hawk'</span>, <span class="str">'eye'</span>, <span class="str">'Waverly'</span>),</p> 
+                <p>(<span class="yel">6</span>, <span class="str">'God'</span>, <span class="str">'Thor'</span>, <span class="str">'Asgard'</span>);</p> 
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>firstname</th>
+                        <th>lastname</th>
+                        <th>city</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Tony</td>
+                        <td>Stark</td>
+                        <td>Malibu</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Steve</td>
+                        <td>Rogers</td>
+                        <td>Brooklyn</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Bruce</td>
+                        <td>Banner</td>
+                        <td>Dayton</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Natasha</td>
+                        <td>Romanoff</td>
+                        <td>Red Room</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">5</td>
+                        <td>Hawk</td>
+                        <td>eye</td>
+                        <td>Waverly</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">6</td>
+                        <td>God</td>
+                        <td>Thor</td>
+                        <td>Asgard</td>
+                    </tr>
+                </table>
+            </div>
+            <img src="../images/venkatesh.gif" alt="venkatesh" class="same">
+            &#127775; hamayya mothaniki oka table choosam anukuntunnara &#128517; <br>
+            &#127775; anni columns ki data add cheyyalante just table name mention chesi values iste chalu but confirm ga table lo ani columns ki values ivvali appude successful ga query run avtundi <br>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">INSERT INTO</span> UserDetails </p>
+                <p><span class="yel">VALUES</span></p>
+                <p>(<span class="yel">1</span>, <span class="str">'Tony'</span>, <span class="str">'Stark'</span>, <span class="str">'Malibu'</span>),</p>
+                <p>(<span class="yel">2</span>, <span class="str">'Steve'</span>, <span class="str">'Rogers'</span>, <span class="str">'Brooklyn'</span>),</p>
+                <p>(<span class="yel">3</span>, <span class="str">'Bruce'</span>, <span class="str">'Banner'</span>, <span class="str">'Dayton'</span>),</p> 
+                <p>(<span class="yel">4</span>, <span class="str">'Natasha'</span>, <span class="str">'Romanoff'</span>, <span class="str">'Red Room'</span>),</p> 
+                <p>(<span class="yel">5</span>, <span class="str">'Hawk'</span>, <span class="str">'eye'</span>, <span class="str">'Waverly'</span>),</p> 
+                <p>(<span class="yel">6</span>, <span class="str">'God'</span>, <span class="str">'Thor'</span>, <span class="str">'Asgard'</span>);</p> 
+            </div>
+            &#127775; ee query ni execute chesina previous table ye vastundi. <br>
+            &#127775; meru particular column lo data add cheyyalante column names mention cheskovali <br>
+            <div class="code">
+                <p><span class="yel">INSERT INTO</span> UserDetails(firstname, lastname, city) </p>
+                <p><span class="yel">VALUES</span></p>
+                <p>(<span class="str">'Tony'</span>, <span class="str">'Stark'</span>, <span class="str">'Malibu'</span>),</p>
+                <p>(<span class="str">'Steve'</span>, <span class="str">'Rogers'</span>, <span class="str">'Brooklyn'</span>),</p>
+                <p>(<span class="str">'Bruce'</span>, <span class="str">'Banner'</span>, <span class="str">'Dayton'</span>),</p> 
+                <p>(<span class="str">'Natasha'</span>, <span class="str">'Romanoff'</span>, <span class="str">'Red Room'</span>),</p> 
+                <p>(<span class="str">'Hawk'</span>, <span class="str">'eye'</span>, <span class="str">'Waverly'</span>),</p> 
+                <p>(<span class="str">'God'</span>, <span class="str">'Thor'</span>, <span class="str">'Asgard'</span>);</p> 
+            </div>
+            &#127775; ee query ni run chesina previous table ye vastundi because, sql lo id column unique and auto increment veetikosam next session lo telustundi <br>
+            &#127775; query run ayinappudu automatic ga every user ki id increment avtundi <br>
+            </details>
+        </section>
+
+        <!--update data-->
+        <p id="update"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; UPDATE Statement</summary>
+            &#127775; table lo unna data ni change cheyyalante update command ni use chestam <br>
+            &#127775; Lets change city of user Steve Rogers <br>
+            &#127809; Query:
+            <div class="code">
+                <p><span class="yel">UPDATE</span> UserDetails</p>
+                <p><span class="yel">SET</span> city = <span class="str">'NewYork'</span></p>
+                <p><span class="yel">WHERE </span>id = <span class="yel">2</span>;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>firstname</th>
+                        <th>lastname</th>
+                        <th>city</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Steve</td>
+                        <td>Rogers</td>
+                        <td>NewYork</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; WHERE clause yela help avtundi ante manam mention chesina condition ni meet ayithene Query lo operation ni perform chestundi <br>
+            &#127775; city ni NewYork ki change cheyyamanna yeppudaithe id = 2 avtundo <br>
+            &#127775; meeru where clause use cheyyakapote andari city NewYork ayipotundi <br>
+            &#127775; updating multiple values at a time <br>
+            &#127809; Query:
+            <div class="code">
+                <p><span class="yel">UPDATE</span> UserDetails</p>
+                <p><span class="yel">SET</span> firstname = <span class="str">'Robert'</span>, lastname = <span class="str">'Luna'</span></p>
+                <p><span class="yel">WHERE </span>id = <span class="yel">5</span>;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>firstname</th>
+                        <th>lastname</th>
+                        <th>city</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">5</td>
+                        <td>Robert</td>
+                        <td>Luna</td>
+                        <td>Waverly</td>
+                    </tr>
+                </table>
+            </div>
+            </details>
+        </section>
+
+        <!--delete-->
+        <p id="delete"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; Delete Statement</summary>
+            &#127775; Table lo data ni delete cheyyalante delete command use chestam <br>
+            &#127775; truncate command undi kadha adhi use chedam ani meru anukovacchu kani only one person data ni delete cheyyalante ee delete command use cheyyali <br>
+            &#127809; Query:
+            <div class="code">
+                <p><span class="yel">DELETE FROM</span> UserDetails</p>
+                <p><span class="yel">WHERE </span>id = <span class="yel">5</span>;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>firstname</th>
+                        <th>lastname</th>
+                        <th>city</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Tony</td>
+                        <td>Stark</td>
+                        <td>Malibu</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Steve</td>
+                        <td>Rogers</td>
+                        <td>NewYork</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Bruce</td>
+                        <td>Banner</td>
+                        <td>Dayton</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Natasha</td>
+                        <td>Romanoff</td>
+                        <td>Red Room</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">6</td>
+                        <td>God</td>
+                        <td>Thor</td>
+                        <td>Asgard</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; id number 5 unna user data delete ayipotundi <br>
+            &#127775; table lo unna data antha delete avvalante, table name ni mention cheste chaalu <br>
+            &#127809; Query:
+            <div class="code">
+                <p><span class="yel">DELETE FROM</span> UserDetails;</p>
+                <p>-- above query similar to below one</p>
+                <p><span class="yel">TRUNCATE TABLE</span> UserDetails;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>firstname</th>
+                        <th>lastname</th>
+                        <th>city</th>
+                    </tr>
+                </table>
+            </div>
+            &#127775; Ayina delete enduku truncate use chesi where tho condition pedite saripotundi ane doubt ravochu <br>
+            &#127775; kani Truncate command does not support where clause anduke delete use chestam <br>
+            &#127775; table lo data antha teeseyalante truncate vaduko only rows ne delete cheyyalante delete command vaduko anthe. <br>
+            </details>
+        </section>
+    </main>
+
+
+    <footer>
+        <h1 class="head"><a class="an" href="../html files/SQL Database.html"><img src="../images/before.png" alt="before" height="50px" width="50px"></a> <a href="../index.html#top2" class="an"><img src="../images/home.png" alt="home" height="50px" width="50px"></a> <a href="../html files/SQL Constraints.html" class="an"><img src="../images/next.png" alt="next" height="50px" width="50px"></a> 
+        </h1>
+        <a href="#top"><img src="../images/up-arrow.png" alt="up" class="bottom" width="60px" height="60px"></a>
+    </footer>
+    <div class="lite2">
+        <p>Copyright &#9400; 2022 All Rights Reserved | Polamarasetti Jayakrishna</p>
+    </div>
+</body>
+</html>     

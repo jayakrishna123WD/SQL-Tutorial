@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--font-family: 'Inconsolata', monospace;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap" rel="stylesheet">
+
+    <!--font-family: 'Nixie One', cursive;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nixie+One&display=swap" rel="stylesheet">
+
+    <!--font-family: 'Red Hat Mono', monospace;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="../styles/database.css">
+    <title>SQL Constraints</title>
+    <link rel="icon" type="image/x-icon" href="/images/sql icon.png">
+    <meta charset="UTF-8">
+    <meta name="description" content="SQL Constraints">
+    <meta name="keywords" content="SQL Constraints, adding rules to columns when creating them">
+    <meta name="author" content="Polamarasetti Jayakrishna">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="sql">
+        <img src="../images/sql icon.png" alt="sql" class="sql" width="50px" height="50px">
+    </div>
+
+    <header>
+        <h1 class="head"><a class="an" href="../html files/SQL Database manipulation.html"><img src="../images/before.png" alt="before" height="50px" width="50px"></a> <a href="../index.html#top2" class="an"><img src="../images/home.png" alt="home" height="50px" width="50px"></a> <a href="../html files/SQL Commands & Statements.html" class="an"><img src="../images/next.png" alt="next" height="50px" width="50px"></a> 
+    </h1>
+    <p id="top"></p>
+    <h1 class="cen">SQL Constraints</h1>
+    </header>
+
+    <article class="ten">
+        <p id="top"></p>
+        <h2>List of Topics: </h2>
+        <div class="ten2 haha">
+            &#127809; <a href="#constraints">Constraints</a ><br>
+            &#127809; <a href="#notnull">NOT NULL Constraint</a> <br>
+            &#127809; <a href="#unique">UNIQUE Constraint</a> <br>
+            &#127809; <a href="#prima">PRIMARY KEY</a> <br>
+            &#127809; <a href="#foreign">FOREIGN KEY</a> <br>
+            &#127809; <a href="#check">CHECK Constraint</a> <br>
+            &#127809; <a href="#defa">DEFAULT Constraint</a> <br>
+            &#127809; <a href="#crea">CREATE INDEX</a>
+        </div>
+    </article>
+    <img src="../images/rules.gif" alt="rules" class="same">
+    
+    <main>
+        &#127775; Insta lo reels aapi SQL lo rules choodam padha <br>
+        <img src="../images/come on.gif" alt="comeon" class="same">
+        <!--constraints-->
+        <p id="constraints"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; Constraints</summary>
+            &#127775; ee topic denikosamo ardamaipoyundali, yes you got it. It's about Rules, limitations & restrictions. <br>
+            &#127775; Ayina language rules undadam normal. SQL lo kooda manam table create chesetappudu konni constraints use chesi columns ki rules add cheyyochu. <br>
+            &#127775; we can use these constraints with ALTER TABLE statement <br>
+            &#127775; college or office ki vellali ante id card undali adhi oka rule alantive ikkada kooda untay. <br>
+            &#127775; Constraints in SQL <br>
+            <p class="ten">
+                &#127807; NOT NULL -- values kaliga undakudadhu <br>
+                &#127807; UNIQUE -- values vere vatitho match avvakudadhu <br>
+                &#127807; PRIMARY KEY -- oka person ni unique ga identify cheyyadaniki help avtundi like me id card number <br>
+                &#127807; FOREIGN KEY -- this is like reference helps to match one user in a table to another table <br>
+                &#127807; CHECK -- condition ni check chesi process chestundi <br>
+                &#127807; DEFAULT -- default ga values ivvadaniki use avtundi <br>
+                &#127807; CREATE INDEX -- data retrieving fast avvadaniki use chestaru 
+            </p>
+            &#127775; ee constraints ni yela use cheyyalo choodam <br>
+            </details>
+        </section>
+
+        <!--notnull-->
+        <p id="notnull"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; NOT NULL Constraint</summary>
+            &#127775; students kosam oka table create cheddam aythe andariki confirm ga undalsindi id number kadha, so create chesetappudu ah column null avvakudadhu ani pedadham <br>
+            <div class="code">
+                <p><span class="yel">USE</span> JBLCollege;</p>
+                <p><span class="yel">CREATE TABLE</span> StudentDetails (</p>
+                <p class="ten">Student_id <span class="var">int</span><span class="yel"> NOT NULL</span>,</p>
+                <p class="ten">firstname <span class="var">varchar</span>(<span class="yel">30</span>),</p>
+                <p class="ten">lastname <span class="var">varchar</span>(<span class="yel">30</span>),</p>
+                <p class="ten">Branch <span class="var">text</span></p>
+                <p>);</p>
+            </div>
+            &#127775; ee query execute aythe JBLCollege data base lo StudentDetails table create avtundi, Student_id column lo data confirm ga undali, null avvakudadhu. <br>
+            &#127775; Naku Branch kooda null avvakudadhu ilanti situation lo alter table statement use chestam <br>
+            <div class="code">
+                <p><span class="yel">ALTER TABLE</span> StudentDetails </p>
+                <p><span class="yel">MODIFY</span> Branch <span class="var">text</span> <span class="yel"> NOT NULL</span>;</p>
+            </div>
+            &#127775; table create ayipoyaka constraints provide cheyyalante alter command use chestam, Branch column ippudu can't store null values. <br>
+            </details>
+        </section>
+
+        <!--unique-->
+        <p id="unique"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; UNIQUE Constraint</summary>
+            &#127775; Student_id column null avvadu adhi ok, kani okate id number iddariki undakudadu kadha mari adhi yela chestaru <br>
+            <img src="../images/think.gif" alt="think" class="same">
+            &#127809; Query:
+            <div class="code">
+                <p><span class="yel">USE</span> JBLCollege;</p>
+                <p>-- SQL Server / Oracle / MS Access:</p>
+                <p><span class="yel">CREATE TABLE</span> StudentDetails (</p>
+                <p class="ten">Student_id <span class="var">int</span><span class="yel"> NOT NULL UNIQUE</span>,</p>
+                <p class="ten">firstname <span class="var">varchar</span>(<span class="yel">30</span>),</p>
+                <p class="ten">lastname <span class="var">varchar</span>(<span class="yel">30</span>),</p>
+                <p class="ten">Branch <span class="var">text</span></p>
+                <p>);</p>
+                <br>
+                <p>-- MySQL:</p>
+                <p><span class="yel">CREATE TABLE</span> StudentDetails (</p>
+                <p class="ten">Student_id <span class="var">int</span>,</p>
+                <p class="ten">firstname <span class="var">varchar</span>(<span class="yel">30</span>),</p>
+                <p class="ten">lastname <span class="var">varchar</span>(<span class="yel">30</span>),</p>
+                <p class="ten">Branch <span class="var">text</span>,</p>
+                <p class="ten"><span class="yel">UNIQUE</span>(Student_id)</p>
+                <p>);</p>
+            </div>
+            &#127775; ippudu Student_id column null avvadu and unique untundi andariki unique values untay, so easy ga identify cheyyochu <br>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">INSERT INTO</span> StudentDetails </p>
+                <p><span class="yel">VALUES</span></p>
+                <p>(<span class="yel">1</span>, <span class="str">'Ramesh'</span>, <span class="str">'fivestar'</span>, <span class="str">'ECE'</span>),</p>
+                <p>(<span class="yel">2</span>, <span class="str">'rahul'</span>, <span class="str">'diarymilk'</span>, <span class="str">'CSE'</span>),</p>
+                <p>(<span class="yel">2</span>, <span class="str">'rajesh'</span>, <span class="str">'perk'</span>, <span class="str">'IT'</span>);</p> 
+            </div>
+            &#127775; manaki output error vastundi because Student_id not null and unique ani cheppam but same Student_id iddariki ivvadam valla error vacchindi <br>
+            &#127775; naku table lo lastname unique kavali, so alter command use cheyyadame <br>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">ALTER TABLE </span>StudentDetails</p>
+                <p><span class="yel">ADD UNIQUE</span> (lastname);</p>
+            </div>
+            &#127775; Now lastname becomes unique column
+            </details>
+        </section>
+
+        <!--prima-->
+        <p id="prima"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; PRIMARY KEY</summary>
+            &#127775; PRIMARY KEY = NOT NULL + UNIQUE <br>
+            &#127775; oka user ni unique ga identify cheyyadaniki use ayye constraint ye PRIMARY KEY <br>
+            &#127775; So, primary key constraint ayina column cannot have null values and maintain unique values <br>
+            &#127775; king &#128081; yeppudu okkade untadu alane oka table ki oka primary key ne untundi <br>
+            &#127775; ah primary key can consists one or more than one columns <br>
+            &#127775; lets make Student_id column primary key <br>
+            &#127809; Query:
+            <div class="code">
+                <p><span class="yel">USE</span> JBLCollege;</p>
+                <p><span class="yel">CREATE TABLE</span> StudentDetails (</p>
+                <p class="ten">Student_id <span class="var">int</span>,</p>
+                <p class="ten">firstname <span class="var">varchar</span>(<span class="yel">30</span>),</p>
+                <p class="ten">lastname <span class="var">varchar</span>(<span class="yel">30</span>),</p>
+                <p class="ten">Branch <span class="var">text</span>,</p>
+                <p class="ten"><span class="yel">CONSTRAINT</span> StudentPK <span class="yel">PRIMARY KEY</span> (Student_id)</p>
+                <p>);</p>
+            </div>
+            &#127775; ee query execute aythe Student_id primary key avtundi ante null values undav and unique values untay <br>
+            &#127775; StudentPK ante Named Constraint, query execute chesaka error vaste ee named constraint display avtundi. meeru multiple tables meeda work chesi nappudu meku ee named constraint baga help avtay because ye table lo error vastundo telustundi. named constraint word yemaina pettukovacchu me istam adhi <br>
+            &#127775; Multiple columns ni yela primary key cheyyalante <br>
+            &#127809; Query:
+            <div class="code">
+                <p><span class="yel">USE</span> JBLCollege;</p>
+                <p><span class="yel">CREATE TABLE</span> StudentDetails (</p>
+                <p class="ten">Student_id <span class="var">int</span>,</p>
+                <p class="ten">firstname <span class="var">varchar</span>(<span class="yel">30</span>),</p>
+                <p class="ten">lastname <span class="var">varchar</span>(<span class="yel">30</span>),</p>
+                <p class="ten">Branch <span class="var">text</span>,</p>
+                <p class="ten"><span class="yel">CONSTRAINT</span> StudentPK <span class="yel">PRIMARY KEY</span> (Student_id, lastname)</p>
+                <p>);</p>
+            </div>
+            &#127775; two columns kalipi primary key kadha chinna example choodam <br>
+            &#127809; Query:
+            <div class="code">
+                <p><span class="yel">INSERT INTO</span> StudentDetails</p>
+                <p><span class="yel">VALUES </span>(<span class="yel">1</span>, <span class="str">'peter'</span>, <span class="str">'qeul'</span>, <span class="str">'ECM'</span>);</p>
+                <p>-- Data added to table.</p>
+                <br>
+                <p><span class="yel">INSERT INTO</span> StudentDetails</p>
+                <p><span class="yel">VALUES </span>(<span class="yel">1</span>, <span class="str">'peter'</span>, <span class="str">'sprite'</span>, <span class="str">'ECM'</span>);</p>
+                <p>-- Data added to table.</p>
+                <br>
+                <p><span class="yel">INSERT INTO</span> StudentDetails</p>
+                <p><span class="yel">VALUES </span>(<span class="yel">2</span>, <span class="str">'peter'</span>, <span class="str">'quel'</span>, <span class="str">'ECM'</span>);</p>
+                <p>-- Data added to table.</p>
+                <br>
+                <p><span class="yel">INSERT INTO</span> StudentDetails</p>
+                <p><span class="yel">VALUES </span>(<span class="yel">2</span>, <span class="str">'peter'</span>, <span class="str">'sprite'</span>, <span class="str">'ECM'</span>);</p>
+                <p>-- Data added to table.</p>
+                <br>
+                <p><span class="yel">INSERT INTO</span> StudentDetails</p>
+                <p><span class="yel">VALUES </span>(<span class="yel">1</span>, <span class="str">'peter'</span>, <span class="str">'quel'</span>, <span class="str">'ECM'</span>);</p>
+                <p>-- UNIQUE Constraint Error.</p>
+            </div>
+            &#127775; two columns kalipi primary key kadha already two columns lo unna data ne malli insert cheste Constraint error vastundi <br>
+            &#127775; Making a column primary key constraint using alter command <br>
+            &#127809; Query:
+            <div class="code">
+                <p>-- for single column</p>
+                <p><span class="yel">ALTER TABLE </span>StudentDetails</p>
+                <p><span class="yel">ADD PRIMARY KEY</span> (lastname);</p>
+                <br>
+                <p>-- for Multiple columns</p>
+                <p><span class="yel">ALTER TABLE </span>StudentDetails</p>
+                <p><span class="yel">ADD CONSTRAINT</span> StudentPK <span class="yel">PRIMARY KEY</span> (Student_id, lastname);</p>
+            </div>
+            &#127775; Primary key ni remove cheyyalante <br>
+            &#127809; Query:
+            <div class="code">
+                <p>-- SQL Server, Oracle</p>
+                <p><span class="yel">ALTER TABLE</span> StudentDetails</p>
+                <p><span class="yel">DROP CONSTRAINT</span> StudentPK;</p>
+                <br>
+                <p>-- MySQL</p>
+                <p><span class="yel">ALTER TABLE</span> StudentDetails</p>
+                <p><span class="yel">DROP PRIMARY KEY</span>;</p>
+            </div>
+            &#127775; previous topic lo cheppinattu id automatic ga increment avtundi annam kadha, adhi yela automatic ga increment avtundi ante <br>
+            &#127809; SQL Server Query:
+            <div class="code">
+                <p><span class="yel">CREATE TABLE</span> StudentDetails (</p>
+                <p class="ten">Student_id <span class="var">int</span> <span class="yel">IDENTITY</span>(<span class="yel">1</span>, <span class="yel">1</span>),</p>
+                <p class="ten">firstname <span class="var">varchar</span>(<span class="yel">30</span>),</p>
+                <p class="ten">lastname <span class="var">varchar</span>(<span class="yel">30</span>),</p>
+                <p class="ten">Branch <span class="var">text</span>,</p>
+                <p class="ten"><span class="yel">CONSTRAINT</span> StudentPK <span class="yel">PRIMARY KEY</span> (Student_id)</p>
+                <p>);</p>
+            </div>
+            &#127775; IDENTITY(1,1) is like IDENTITY(x,y). x for start value and y for steps to increase <br>
+            &#127809; MySQL Query:
+            <div class="code">
+                <p><span class="yel">CREATE TABLE</span> StudentDetails (</p>
+                <p class="ten">Student_id <span class="var">int</span> <span class="yel">AUTO_INCREMENT</span>,</p>
+                <p class="ten">firstname <span class="var">varchar</span>(<span class="yel">30</span>),</p>
+                <p class="ten">lastname <span class="var">varchar</span>(<span class="yel">30</span>),</p>
+                <p class="ten">Branch <span class="var">text</span>,</p>
+                <p class="ten"><span class="yel">CONSTRAINT</span> StudentPK <span class="yel">PRIMARY KEY</span> (Student_id)</p>
+                <p>);</p>
+            </div>
+            &#127809; PostgreSQL Query:
+            <div class="code">
+                <p><span class="yel">CREATE TABLE</span> StudentDetails (</p>
+                <p class="ten">Student_id <span class="var">int</span> <span class="yel">SERIAL</span>,</p>
+                <p class="ten">firstname <span class="var">varchar</span>(<span class="yel">30</span>),</p>
+                <p class="ten">lastname <span class="var">varchar</span>(<span class="yel">30</span>),</p>
+                <p class="ten">Branch <span class="var">text</span>,</p>
+                <p class="ten"><span class="yel">CONSTRAINT</span> StudentPK <span class="yel">PRIMARY KEY</span> (Student_id)</p>
+                <p>);</p>
+            </div>
+            &#127775; So, meeru data add chesetappudu id mention cheyykapoyina parledu. every new row ki automatic ga value increment avtundi <br>
+            <img src="../images/icant.gif" alt="icant" class="same">
+            &#127775; Tappadu mari topic alantidi konchem opikatho chadivey next Session intresting ga untundi 
+            </details>
+        </section>
+        
+        <!--foreign-->
+        <p id="foreign"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; FOREIGN KEY</summary>
+            &#127775; Tables okadanito okati relation untundi ani cheppa kadha ee topic valle adhi possible avtundi <br>
+            &#127775; we can create a relationship between two tables by using this foreign key constraint <br>
+            &#127775; Foreign key ante table lo oka column that was linked to a table column which has primary key <br>
+            &#127775; simple ga cheppalante primary key unna table parent aythe, foreign key unna table child avtundi <br>
+            &#127809; Students Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>Studentid</th>
+                        <th>Name</th>
+                        <th>city</th>
+                        <th>Age</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Arvind</td>
+                        <td>vizag</td>
+                        <td>21</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Mahesh</td>
+                        <td>Nellore</td>
+                        <td>23</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Kiran</td>
+                        <td>vizag</td>
+                        <td>20</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Marks Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>Marks</th>
+                        <th>S_id</th>
+                        <th>Result</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>874/1000</td>
+                        <td>3</td>
+                        <td>Pass</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">2</td>
+                        <td>769/1000</td>
+                        <td>1</td>
+                        <td>Pass</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">3</td>
+                        <td>698/1000</td>
+                        <td>2</td>
+                        <td>Pass</td>
+                    </tr>
+                </table>
+            </div>
+
+            &#127775; ippudu students table lo Studentid primary key that was linked to marks table with foreign key S_id <br>
+            <img src="../images/nenu-maree-antha-vedava-la.gif" alt="waste" class="same">
+            &#127775; two tables link chesebadulu motham single table lo raste saripotundi kadha ane doubt ravocchu <br>
+            &#127775; proper use of foreign keys can minimize data redundancy, incase yeppudaina data change cheyyalanna easy ga untundi access cheyyadaniki <br>
+            &#127775; enti nammatleda oka chinna example cheppukundam, meru college lo chaduvutunnaru anukondi if foreign key concept lekapote department, library, sports tables lo me anni details rayali 
+            yemaina change cheyyalanna anni tables lo change cheyyali. same data multiple tables lo undi storage waste. <br>
+            &#127775; if foreignkey concept use cheste, me department table ni sports and library tho link chestaru akkada me id use chestaru simple ga yela aythe me college lo me id number tho anni access cheyyocho alane, ila foreignkey use cheyyadam valla
+            data redundancy ni minimize cheyyochu data fast ga access cheyocchu. <br>
+            &#127775; close your eyes, 1 2 3 count chey open your eyes doubt yem ravatleda <br>
+            <img src="../images/thinkkk.gif" alt="think" class="same">
+            &#127775; yenti nijamga raleda <br>
+            <img src="../images/stuck-.gif" alt="stuck-" class="same">
+            &#127775; okok, nene cheptha <br>
+            <img src="../images/siggu-padakkarlaa-allu-arjun.gif" alt="siggu" class="same">
+            &#127775; neeku ee doubt vaste ok, Foreignkey ni yela create chestam anede doubt lets see <br>
+            &#127809; Query for Parent table:
+            <div class="code">
+                <p>-- Students Table</p>
+                <p><span class="yel">CREATE TABLE</span> Students (</p>
+                <p class="ten">Studentid <span class="var">int</span>,</p>
+                <p class="ten">Name <span class="var">varchar</span>(<span class="yel">30</span>),</p>
+                <p class="ten">city <span class="var">varchar</span>(<span class="yel">30</span>),</p>
+                <p class="ten">Age <span class="var">int</span>,</p>
+                <p class="ten"><span class="yel">CONSTRAINT</span> StudentPK <span class="yel">PRIMARY KEY</span> (Studentid)</p>
+                <p>);</p>
+            </div>
+            &#127809; Query for child table:
+            <div class="code">
+                <p>-- Marks Table</p>
+                <p><span class="yel">CREATE TABLE</span> Marks (</p>
+                <p class="ten">id <span class="var">int</span>,</p>
+                <p class="ten">Marks <span class="var">varchar</span>(<span class="yel">10</span>),</p>
+                <p class="ten">S_id <span class="var">int </span><span class="yel">REFERENCES </span>Students(Studentid),</p>
+                <p class="ten">Result <span class="var">varchar</span>(<span class="yel">10</span>),</p>
+                <p class="ten"><span class="yel">CONSTRAINT</span> MarksPK <span class="yel">PRIMARY KEY</span> (id)</p>
+                <p>);</p>
+            </div>
+            &#127775; references keyword use chesi foreign keys ni create chestam <br>
+            &#127775; suppose meeru Students and marks table create chesetappudu foreignkey create cheyyaledu marchipoyaru anukondi <br>
+            &#127775; ayina em parledu alter unnadu ga manaki vadni use cheyyadame <br>
+            &#127809; Query:
+            <div class="code">
+                <p><span class="yel">ALTER TABLE</span> Marks</p>
+                <p><span class="yel">ADD FOREIGN KEY</span> (S_id) <span class="yel">REFERENCES </span>Students(Studentid);</p>
+            </div>
+            &#127775; ila alter command use chesi foreignkey ni create cheyyochu <br>
+            </details>
+        </section>
+
+        <!--check-->
+        <p id="check"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; CHECK Constraint</summary>
+            &#127775; nenu netho matladalante oka reason vethukovali, ah reason neeku ok anipiste matladatav. ila conditions unattu, check constraint use chesi ah valid condition ni satisfy chestene data ni teeskuntundi table loki<br>
+            &#127775; oka table create cheddam, ah table only age greater than 20 unnavallane teeskuntundi ani condition pedadham <br>
+            &#127809; Query:
+            <div class="code">
+                <p><span class="yel">CREATE TABLE</span> Ages (</p>
+                <p class="ten">userid <span class="var">int</span> <span class="yel">PRIMARY KEY</span>,</p>
+                <p class="ten">age <span class="var">int</span> <span class="yel">CHECK </span>(age &#62; <span class="yel">20</span>)</p>
+                <p>);</p>
+            </div>
+            &#127809; Query:
+            <div class="code">
+                <p>-- Data added to table bcz age is &#62; 20</p>
+                <p><span class="yel">INSERT INTO</span> Ages(age) </p>
+                <p><span class="yel">VALUES</span> (<span class="yel">24</span>);</p>
+                <p>-- error vastundi bcz age is &#60; 20</p>
+                <p><span class="yel">INSERT INTO</span> Ages(age) </p>
+                <p><span class="yel">VALUES</span> (<span class="yel">16</span>);</p>
+            </div>
+            &#127775; ee example chooste meku named constraint meeda idea vacchestundi <br>
+            &#127809; Query:
+            <div class="code">
+                <p><span class="yel">CREATE TABLE</span> Ages (</p>
+                <p class="ten">userid <span class="var">int</span> <span class="yel">PRIMARY KEY</span>,</p>
+                <p class="ten">age <span class="var">int</span>, </p>
+                <p class="ten"><span class="yel">CONSTRAINT </span>errorvachindamma <span class="yel">CHECK </span>(age &#62; <span class="yel">20</span>)</p>
+                <p>);</p>
+            </div>
+            &#127775; ippudu data ni add cheddam <br>
+            &#127809; Query:
+            <div class="code">
+                <p><span class="yel">INSERT INTO</span> Ages(age) </p>
+                <p><span class="yel">VALUES</span> (<span class="yel">16</span>);</p>
+                <p>-- error looks like</p>
+                <p>Error: CHECK constraint failed: errorvachindamma</p>
+            </div>
+            &#127775; hope you understand <br>
+            &#127775; by using alter command : <br>
+            &#127809; Query:
+            <div class="code">
+                <p><span class="yel">ALTER TABLE </span>Ages</p>
+                <p><span class="yel">ADD CHECK </span>(age &#62; <span class="yel">20</span>);</p>
+            </div>
+            &#127775; alter command with named constraint <br>
+            &#127809; Query:
+            <div class="code">
+                <p><span class="yel">ALTER TABLE </span>Ages</p>
+                <p><span class="yel">ADD CONSTRAINT </span>errorvachindamma <span class="yel">CHECK </span>(age &#62; <span class="yel">20</span>);</p>
+            </div>
+            </details>
+        </section>
+
+        <!--defa-->
+        <p id="defa"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; DEFAULT Constraint</summary>
+            &#127775; manam table ki default values pettukovadaniki use chestam ee constraint <br>
+            &#127775; like yelanti situations ante students data tesskunnam anukondi andaridi state AP ne kadha maximum appudu default value AP ista state column ki, AP state kani vallu change chestaru. same ayina vallu malli enter cheyyalsina avasaram undadu. <br>
+            &#127809; Query:
+            <div class="code">
+                <p><span class="yel">CREATE TABLE</span> students (</p>
+                <p class="ten">userid <span class="var">int</span> <span class="yel">PRIMARY KEY</span>,</p>
+                <p class="ten">name <span class="var">varchar</span>(<span class="yel">30</span>),</p>
+                <p class="ten">city <span class="var">varchar</span>(<span class="yel">25</span>),</p>
+                <p class="ten">state <span class="var">varchar</span>(<span class="yel">30</span>) <span class="yel">DEFAULT </span> <span class="str">'AP'</span></p>
+                <p>);</p>
+            </div>
+            &#127809; Query:
+            <div class="code">
+                <p><span class="yel">INSERT INTO</span> students(userid, name, city) </p>
+                <p><span class="yel">VALUES</span> (<span class="yel">1</span>, <span class="yel">'Nagarjuna'</span>, <span class="yel">'Vizag'</span>);</p>
+                <br>
+                <p><span class="yel">INSERT INTO</span> students(userid, name, city, state) </p>
+                <p><span class="yel">VALUES</span> (<span class="yel">2</span>, <span class="yel">'Akhil'</span>, <span class="yel">'Hyd'</span>, <span class="yel">'Telangana'</span>);</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>name</th>
+                        <th>city</th>
+                        <th>state</th>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Nagarjuna</td>
+                        <td>vizag</td>
+                        <td>AP</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Akhil</td>
+                        <td>Hyd</td>
+                        <td>Telangana</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; Default using with alter command <br>
+            &#127809; Query:
+            <div class="code">
+                <p>-- SQL Server</p>
+                <p><span class="yel">ALTER TABLE </span>students</p>
+                <p><span class="yel">DEFAULT </span> <span class="str">'AP'</span> <span class="yel">FOR</span> state;</p>
+                <br>
+                <p>-- PostgreSQL</p>
+                <p><span class="yel">ALTER TABLE </span>students</p>
+                <p><span class="yel">ALTER COLUMN</span> state<span class="yel"> SET DEFAULT</span> <span class="str">'AP'</span>;</p>
+                <br>
+                <p>-- MySQL</p>
+                <p><span class="yel">ALTER TABLE </span>students</p>
+                <p><span class="yel">ALTER</span> state<span class="yel"> SET DEFAULT</span> <span class="str">'AP'</span>;</p>
+                <br>
+                <p>-- Oracle</p>
+                <p><span class="yel">ALTER TABLE </span>students</p>
+                <p><span class="yel">MODIFY </span> state<span class="yel"> DEFAULT</span> <span class="str">'AP'</span>;</p>
+                <br>
+            </div>
+            &#127775; based on your requirement you can choose constraints. <br>
+            </details>
+        </section>
+
+        <!--crea-->
+        <p id="crea"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; CREATE INDEX</summary>
+            &#127775; yemaina textbook unte open chey starting lo index page untundi dani use meeku telisinde ga 
+            manaki kavalsina topic ni fast ga access cheskovadaniki ah index use avtundi <br>
+            &#127775; meeru large amount of data paina work chesetappudu meeku idhi help avtundi <br>
+            &#127775; main purpose of this constraint is, it's faster to retrieve data if we use that column for data retrieval <br>
+            &#127809; Query:
+            <div class="code">
+                <p>-- Creating a table</p>
+                <p><span class="yel">CREATE TABLE</span> Books (</p>
+                <p class="ten">Booksid <span class="var">int</span> <span class="yel">PRIMARY KEY</span>,</p>
+                <p class="ten">Name <span class="var">varchar</span>(<span class="yel">40</span>),</p>
+                <p class="ten">Author <span class="var">varchar</span>(<span class="yel">35</span>),</p>
+                <p class="ten">Price <span class="var">int</span> <span class="yel">NOT NULL</span></p>
+                <p>);</p>
+                <br>
+                <p>-- creating index for column Name</p>
+                <p><span class="yel">CREATE INDEX</span> BookIndex</p>
+                <p><span class="yel">ON </span>Books(Name);</p>
+            </div>
+            &#127775; For example bank database teeskondi andulo lakhs of people data untundi, akkada accessing easy avvadaniki ee index use chestaru <br>
+            &#127775; but same name chala mandiki untundi ga appudu yela retrieve avtundi, manaki unique unnadu ga multiple columns ki kooda index create cheyyochu, first and last name kalipi index chesi unique cheste appudu unique ga identification easy avtundi <br>
+            &#127809; Query:
+            <div class="code">
+                <p>-- Creating a table</p>
+                <p><span class="yel">CREATE TABLE</span> Bank (</p>
+                <p class="ten">AccountNumber <span class="var">int</span> <span class="yel">PRIMARY KEY</span>,</p>
+                <p class="ten">firstname <span class="var">varchar</span>(<span class="yel">40</span>),</p>
+                <p class="ten">lastname <span class="var">varchar</span>(<span class="yel">35</span>),</p>
+                <p>);</p>
+                <br>
+                <p>-- creating index for column Name</p>
+                <p><span class="yel">CREATE UNIQUE INDEX</span> BankIndex</p>
+                <p><span class="yel">ON </span>Bank(firstname, lastname);</p>
+            </div>
+            &#127775; maku index em vaddhu, danni teeseyalante <br>
+            <div class="code">
+                <p>--SQL Server</p>
+                <p><span class="yel">DROP INDEX</span> Bank.BankIndex;</p>
+                <br>
+                <p>-- PostgreSQL, Oracle</p>
+                <p><span class="yel">DROP INDEX </span>BankIndex;</p>
+                <br>
+                <p>-- MySQL</p>
+                <p><span class="yel">ALTER TABLE </span>Bank</p>
+                <p><span class="yel">DROP INDEX </span>BankIndex;</p>
+            </div>
+            &#127775; table lo data alane untundi only index okate delete avtundi
+            </details> 
+        </section>
+        &#127775; Finally rules anni choosesam, nen chala happy <br>
+        <img src="../images/happy.gif" alt="happy" class="same">
+    </main>
+
+
+    <footer>
+        <h1 class="head"><a class="an" href="../html files/SQL Database manipulation.html"><img src="../images/before.png" alt="before" height="50px" width="50px"></a> <a href="../index.html#top2" class="an"><img src="../images/home.png" alt="home" height="50px" width="50px"></a> <a href="../html files/SQL Commands & Statements.html" class="an"><img src="../images/next.png" alt="next" height="50px" width="50px"></a> 
+        </h1>
+        <a href="#top"><img src="../images/up-arrow.png" alt="up" class="bottom" width="60px" height="60px"></a>
+    </footer>
+    <div class="lite2">
+        <p>Copyright &#9400; 2022 All Rights Reserved | Polamarasetti Jayakrishna</p>
+    </div>
+</body>
+</html>     

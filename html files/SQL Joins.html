@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--font-family: 'Inconsolata', monospace;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap" rel="stylesheet">
+
+    <!--font-family: 'Nixie One', cursive;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nixie+One&display=swap" rel="stylesheet">
+
+    <!--font-family: 'Red Hat Mono', monospace;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="../styles/database.css">
+    <title>SQL Joins</title>
+    <link rel="icon" type="image/x-icon" href="/images/sql icon.png">
+    <meta charset="UTF-8">
+    <meta name="description" content="SQL Joins">
+    <meta name="keywords" content="SQL Joins, inner, left, right, outer, self joins. subqueries">
+    <meta name="author" content="Polamarasetti Jayakrishna">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="sql">
+        <img src="../images/sql icon.png" alt="sql" class="sql" width="50px" height="50px">
+    </div>
+
+    <header>
+        <h1 class="head"><a class="an" href="../html files/SQL Commands & Statements.html"><img src="../images/before.png" alt="before" height="50px" width="50px"></a> <a href="../index.html#top2" class="an"><img src="../images/home.png" alt="home" height="50px" width="50px"></a> <a href="../html files/SQL Aggregrate.html" class="an"><img src="../images/next.png" alt="next" height="50px" width="50px"></a> 
+    </h1>
+    <p id="top"></p>
+    <h1 class="cen">SQL Joins</h1>
+    </header>
+
+    <article class="ten">
+        <p id="top"></p>
+        <h2>List of Topics: </h2>
+        <div class="ten2 haha">
+            &#127809; <a href="#subquery">Subquery</a> <br>
+            &#127809; <a href="#exist">EXISTS</a> <br>
+            &#127809; <a href="#join">SQL Joins</a ><br>
+            &#127809; <a href="#ijoin">Inner Join</a> <br>
+            &#127809; <a href="#ljoin">Left Join</a> <br>
+            &#127809; <a href="#rjoin">Right Join</a> <br>
+            &#127809; <a href="#fjoin">Full Outer Join</a> <br>
+            &#127809; <a href="#cjoin">Cross Join</a> <br>
+        </div>
+    </article>
+
+    <main> 
+
+        <!--Subquery-->
+        <p id="subquery"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; Subquery</summary>
+            &#127775; Subquery ante a Query placed inside another Query <br>
+            &#127775; By using subqueries we can retrieve matched values<br>
+            &#127809; IT_Department Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>studentid</th>
+                        <th>studentname</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Peter</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Sprite</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Robin</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Vashikar</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>Jayakrishna</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Library Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>bookname</th>
+                        <th>student</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Jon Ducket HTML & CSS</td>
+                        <td>3</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Jon Ducket JAVASCRIPT</td>
+                        <td>5</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Head First JAVA</td>
+                        <td>2</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Python Programming</td>
+                        <td>10</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>R Language</td>
+                        <td>7</td>
+                    </tr>
+
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> *</p>
+                <p><span class="yel">FROM </span>IT_Department</p>
+                <p><span class="yel">WHERE </span>studentid <span class="yel">IN </span>(</p>
+                <p class="ten"><span class="yel">SELECT</span> student</p>
+                <p class="ten"><span class="yel">FROM </span>Library </p>
+                <p>);</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>studentid</th>
+                        <th>studentname</th>
+                    </tr>
+    
+                    <tr>
+                        <td>2</td>
+                        <td>Sprite</td>
+                    </tr>
+    
+                    <tr>
+                        <td>3</td>
+                        <td>Robin</td>
+                    </tr>
+
+                    <tr>
+                        <td>5</td>
+                        <td>Jayakrishna</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; columns match ayina values retrieve avtay but ide process join clause use chesi cheste manaki two tables lo data kooda access cheyyochu and ah clause fast untundi <br>
+            &#127775; <a target="_blank" class="p" href="https://www.programiz.com/sql/online-compiler?preset=Customers3,%20Orders6&ref=feb252a9">nannu click chey</a> Subquery practice chese place ki teeskelta <br>
+            </details>
+
+        </section>
+
+        <!--EXISTS-->
+        <p id="exist"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; EXISTS operator</summary>
+            &#127775; ee operator yela help chestundante first outer query ni run chesi ah table column values inner query lo unna table column lo unte 
+            data ni retrieve chestundi <br>
+            &#127775; example chooste neke telisipotundi <br>
+            &#127809; IT_Department Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>studentid</th>
+                        <th>studentname</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Peter</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Sprite</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Robin</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Vashikar</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>Jayakrishna</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Library Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>bookname</th>
+                        <th>student</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Jon Ducket HTML & CSS</td>
+                        <td>3</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Jon Ducket JAVASCRIPT</td>
+                        <td>5</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Head First JAVA</td>
+                        <td>2</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Python Programming</td>
+                        <td>10</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>R Language</td>
+                        <td>7</td>
+                    </tr>
+
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> studentname</p>
+                <p><span class="yel">FROM </span>IT_Department</p>
+                <p><span class="yel">WHERE EXISTS</span> (</p>
+                <p class="ten"><span class="yel">SELECT</span> *</p>
+                <p class="ten"><span class="yel">FROM </span>Library </p>
+                <p class="ten"><span class="yel">WHERE </span>IT_Department.studentid = Library.student</p>
+                <p>);</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>studentname</th>
+                    </tr>
+    
+                    <tr>
+                        <td>Sprite</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Robin</td>
+                    </tr>
+
+                    <tr>
+                        <td>Jayakrishna</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; two tables lo common column ni base cheskoni first table lo unna values yevaite inner query table lo unnayo vatini retrieve chesindi <br>
+            &#127775; anduke exist ane clause ni use chesam where exist ante outer table lo data inner table lo unte data ni retrieve cheyyamani <br>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> studentname</p>
+                <p><span class="yel">FROM </span>IT_Department</p>
+                <p><span class="yel">WHERE NOT EXISTS</span> (</p>
+                <p class="ten"><span class="yel">SELECT</span> *</p>
+                <p class="ten"><span class="yel">FROM </span>Library </p>
+                <p class="ten"><span class="yel">WHERE </span>IT_Department.studentid = Library.student</p>
+                <p>);</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>studentname</th>
+                    </tr>
+
+                    <tr>
+                        <td>Peter</td>
+                    </tr>
+
+                    <tr>
+                        <td>Vashikar</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; Not Exist ante outer table lo unnavallu inner table lo leni vallu ville kadha so that's the output. <br>
+            &#127775; <a target="_blank" class="p" href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_exists">nannu click chey</a> EXISTS operator practice chese place ki teeskelta <br>
+            </details>
+        </section>
+
+        <!--SQL Joins -->
+        <p id="join"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; SQL Joins</summary>
+            &#127775; SQL Constraints lo manam data redundancy kosam matladam gurtunda <br>
+            <img src="../images/not-studying-still-thinking-trending.gif" alt="think" class="same">
+            &#127775; chinchu chinchu baga alochinchu <br>
+            &#127775; Foreign key topic lo discuss chesam. Data ni repeat cheyyakunda tables ni link chestam common column tho <br>
+            &#127775; college lo principle ye student library books and sports lo active ga unnaro valla data kavali annaru <br>
+            &#127775; department table kakunda migilina tables (library, sports, etc..,) just id ne untundi <br>
+            &#127775; By using join clause we can join two tables with common column between them, and results matched data <br>
+            &#127809; Types of Joins : <br>
+            <p class="ten">
+                &#127807; INNER JOIN (or) JOIN <br>
+                &#127807; LEFT JOIN <br>
+                &#127807; RIGHT JOIN <br>
+                &#127807; FULL OUTER JOIN <br>
+                &#127807; SELF JOIN <br>
+            </p> 
+            &#127775; anni joins choodam randi 	&#128521; <br>
+            </details>
+        </section>
+
+        <!--Inner Join-->
+        <p id="ijoin"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; Inner Join</summary>
+            &#127775; Inner join or join ye clause use chesina parledu mee istam <br>
+            &#127775; alias topic gurtundi ga, two tables use chestam kadha ah table names ni short form lo cheskunte code readability baguntundi. query chooste meeke aradamaipodhi <br>
+            &#127809; IT_Department Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>studentid</th>
+                        <th>studentname</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Peter</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Sprite</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Robin</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Vashikar</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>Jayakrishna</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Library Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>bookname</th>
+                        <th>student</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Jon Ducket HTML & CSS</td>
+                        <td>3</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Jon Ducket JAVASCRIPT</td>
+                        <td>5</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Head First JAVA</td>
+                        <td>2</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Python Programming</td>
+                        <td>10</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>R Language</td>
+                        <td>7</td>
+                    </tr>
+
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> s.studentid, s.studentname, l.bookname</p>
+                <p><span class="yel">FROM </span>IT_Department <span class="yel">AS</span> s</p>
+                <p><span class="yel">JOIN </span>Library <span class="yel">AS</span> l</p>
+                <p><span class="yel">ON </span>s.studentid = l.student;</p>
+                <br>
+                <p>-- below query is same as above query</p>
+                <p><span class="yel">SELECT </span> s.studentid, s.studentname, l.bookname</p>
+                <p><span class="yel">FROM </span>IT_Department  s</p>
+                <p><span class="yel">JOIN </span>Library l</p>
+                <p><span class="yel">ON </span>s.studentid = l.student;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>studentid</th>
+                        <th>studentname</th>
+                        <th>bookname</th>
+                    </tr>
+    
+                    <tr>
+                        <td>2</td>
+                        <td>Sprite</td>
+                        <td>Head First JAVA</td>
+                    </tr>
+    
+                    <tr>
+                        <td>3</td>
+                        <td>Robin</td>
+                        <td>Jon Ducket HTML & CSS</td>
+                    </tr>
+
+                    <tr>
+                        <td>5</td>
+                        <td>Jayakrishna</td>
+                        <td>Jon Ducket JAVASCRIPT</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; anthe simple, join clause use chesi join cheskovadame common column ni condition ga pedtaru two tables lo match ayina values retrieve avtay <br>
+            &#127775; as pettakapote table antha mention cheyyali ala aythe code length yekkuvaipotundi simple ga alias keyword use cheste simple ga untundi <br>
+            &#127775; as use cheyyakunda space icchina chalu <br>
+            &#127775; INNER JOIN ayina JOIN ayina rendu similar ye meeru join clause place lo inner join clause pettina adhe output vastundi <br>
+            &#127775; <a target="_blank" class="p" href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_join_inner">nannu click chey</a> Inner Join practice chese place ki teeskelta <br>
+            </details>
+        </section>
+
+        <!--Left Join-->
+        <p id="ljoin"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; Left Join</summary>
+            &#127775; Full Outer Join = Left Join + Right Join <br>
+            &#127775; Left Join ante common values and also remaining data in left table ni retrieve chestundi <br>
+            &#127809; IT_Department Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>studentid</th>
+                        <th>studentname</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Peter</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Sprite</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Robin</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Vashikar</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>Jayakrishna</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Library Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>bookname</th>
+                        <th>student</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Jon Ducket HTML & CSS</td>
+                        <td>3</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Jon Ducket JAVASCRIPT</td>
+                        <td>5</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Head First JAVA</td>
+                        <td>2</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Python Programming</td>
+                        <td>10</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>R Language</td>
+                        <td>7</td>
+                    </tr>
+
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> s.studentid, s.studentname, l.bookname</p>
+                <p><span class="yel">FROM </span>IT_Department  s</p>
+                <p><span class="yel">LEFT JOIN </span>Library l</p>
+                <p><span class="yel">ON </span>s.studentid = l.student;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>studentid</th>
+                        <th>studentname</th>
+                        <th>bookname</th>
+                    </tr>
+    
+                    <tr>
+                        <td>1</td>
+                        <td>Peter</td>
+                        <td></td>
+                    </tr>
+    
+                    <tr>
+                        <td>2</td>
+                        <td>Sprite</td>
+                        <td>Head First JAVA</td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>Robin</td>
+                        <td>Jon Ducket HTML & CSS</td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <td>Vashikar</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>5</td>
+                        <td>Jayakrishna</td>
+                        <td>Jon Ducket JAVASCRIPT</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; <a target="_blank" class="p" href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_join_left">nannu click chey</a> Left Join practice chese place ki teeskelta <br>
+            </details>
+        </section>
+
+        <!--Right Join-->
+        <p id="rjoin"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; Right Join</summary>
+            &#127775; meeru expect chesinde, matched values and right table lo unna data kooda retrieve avtundi <br>
+            &#127809; IT_Department Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>studentid</th>
+                        <th>studentname</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Peter</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Sprite</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Robin</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Vashikar</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>Jayakrishna</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Library Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>bookname</th>
+                        <th>student</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Jon Ducket HTML & CSS</td>
+                        <td>3</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Jon Ducket JAVASCRIPT</td>
+                        <td>5</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Head First JAVA</td>
+                        <td>2</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Python Programming</td>
+                        <td>10</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>R Language</td>
+                        <td>7</td>
+                    </tr>
+
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> s.studentid, s.studentname, l.bookname</p>
+                <p><span class="yel">FROM </span>IT_Department  s</p>
+                <p><span class="yel">RIGHT JOIN </span>Library l</p>
+                <p><span class="yel">ON </span>s.studentid = l.student;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>studentid</th>
+                        <th>studentname</th>
+                        <th>bookname</th>
+                    </tr>
+    
+                    <tr>
+                        <td>2</td>
+                        <td>Sprite</td>
+                        <td>Head First JAVA</td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>Robin</td>
+                        <td>Jon Ducket HTML & CSS</td>
+                    </tr>
+
+                    <tr>
+                        <td>5</td>
+                        <td>Jayakrishna</td>
+                        <td>Jon Ducket JAVASCRIPT</td>
+                    </tr>
+    
+                    <tr>
+                        <td>1</td>
+                        <td>Peter</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <td>Vashikar</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; <a target="_blank" class="p" href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_join_right&ss=-1">nannu click chey</a> Right Join practice chese place ki teeskelta <br>
+            </details>
+        </section>
+
+        <!--Full outer Join-->
+        <p id="fjoin"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; Full Outer Join</summary>
+            &#127775; Left Join + Right Join =  Full outer Join <br>
+            &#127775; matched values + remaining data in left and right table ni retrieve chestundi <br>
+            &#127809; IT_Department Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>studentid</th>
+                        <th>studentname</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Peter</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Sprite</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Robin</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Vashikar</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">5</td>
+                        <td>Jayakrishna</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Library Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>bookname</th>
+                        <th>student</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Jon Ducket HTML & CSS</td>
+                        <td>3</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">2</td>
+                        <td>R Language</td>
+                        <td>7</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">3</td>
+                        <td>Jon Ducket JAVASCRIPT</td>
+                        <td>5</td>
+                    </tr>
+
+                    <tr>
+                        <td class="c">4</td>
+                        <td>Python Programming</td>
+                        <td>10</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">5</td>
+                        <td>Head First JAVA</td>
+                        <td>2</td>
+                    </tr>
+
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> s.studentid, s.studentname, l.bookname</p>
+                <p><span class="yel">FROM </span>IT_Department  s</p>
+                <p><span class="yel">FULL OUTER JOIN </span>Library l</p>
+                <p><span class="yel">ON </span>s.studentid = l.student;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>studentid</th>
+                        <th>studentname</th>
+                        <th>bookname</th>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>Robin</td>
+                        <td>Jon Ducket HTML & CSS</td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>R Language</td>
+                    </tr>
+
+                    <tr>
+                        <td>5</td>
+                        <td>Jayakrishna</td>
+                        <td>Jon Ducket JAVASCRIPT</td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>Python Programming</td>
+                    </tr>
+    
+                    <tr>
+                        <td>2</td>
+                        <td>Sprite</td>
+                        <td>Head First JAVA</td>
+                    </tr>
+    
+                    <tr>
+                        <td>1</td>
+                        <td>Peter</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <td>Vashikar</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; inthe simple, meeru join chesetappudu where clause kooda use cheyyochu sepcific condition ni satisfy chesinappude data retrieve ayyela <br>
+            &#127775; order by clause ni kooda use cheyyochu ila join chesi data ni observe chesina ma principle dill kushi ayyaru 
+            </details>
+        </section>
+
+        <!--Cross Join-->
+        <p id="cjoin"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; Cross Join</summary>
+            &#127775; CROSS JOIN is used to combine each row of the first table with each row of the second table. It is also known as the Cartesian join <br>
+            &#127809; User Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>userid</th>
+                        <th>studentname</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Peter</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>Spark</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Courses Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>coursename</th>
+                    </tr>
+
+                    <tr>
+                        <td class="c">1</td>
+                        <td>Web Development</td>
+                    </tr>
+    
+                    <tr>
+                        <td class="c">2</td>
+                        <td>JAVA</td>
+                    </tr>
+
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">SELECT </span> u.studentname, c.coursename</p>
+                <p><span class="yel">FROM </span>User u</p>
+                <p><span class="yel">CROSS JOIN </span>Courses c;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>studentname</th>
+                        <th>coursename</th>
+                    </tr>
+
+                    <tr>
+                        <td>Peter</td>
+                        <td>Web Development</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Peter</td>
+                        <td>JAVA</td>
+                    </tr>
+
+                    <tr>
+                        <td>Spark</td>
+                        <td>Web Development</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Spark</td>
+                        <td>JAVA</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; <a target="_blank" class="p" href="https://www.educative.io/answers/what-is-the-sql-cross-join">nannu click chey</a> Cross Join practice chese place ki teeskelta <br>
+            </details>
+        </section>
+
+    </main>
+
+
+    <footer>
+        <h1 class="head"><a class="an" href="../html files/SQL Commands & Statements.html"><img src="../images/before.png" alt="before" height="50px" width="50px"></a> <a href="../index.html#top2" class="an"><img src="../images/home.png" alt="home" height="50px" width="50px"></a> <a href="../html files/SQL Aggregrate.html" class="an"><img src="../images/next.png" alt="next" height="50px" width="50px"></a> 
+        </h1>
+        <a href="#top"><img src="../images/up-arrow.png" alt="up" class="bottom" width="60px" height="60px"></a>
+    </footer>
+    <div class="lite2">
+        <p>Copyright &#9400; 2022 All Rights Reserved | Polamarasetti Jayakrishna</p>
+    </div>
+</body>
+</html>     

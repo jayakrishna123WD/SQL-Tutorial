@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Introduction to SQL</title>
+
+    <!--font-family: 'Inconsolata', monospace;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap" rel="stylesheet">
+
+    <!--font-family: 'Nixie One', cursive;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nixie+One&display=swap" rel="stylesheet">
+
+    <!--font-family: 'Red Hat Mono', monospace;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="../styles/same.css">
+    <title>Introduction to SQL</title>
+    <link rel="icon" type="image/x-icon" href="/images/sql icon.png">
+    <meta charset="UTF-8">
+    <meta name="description" content="Introduction to SQL">
+    <meta name="keywords" content="Introduction to SQL, data types, coomments, operators">
+    <meta name="author" content="Polamarasetti Jayakrishna">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="sql">
+        <img src="../images/sql icon.png" alt="sql" class="sql" width="50px" height="50px">
+    </div>
+    <header>
+        <h1 class="head"><a  href="../index.html#top2" class="an"><img src="../images/home.png" alt="home" height="50px" width="50px"></a ><a  href="../html files/SQL Database.html" class="an an1"><img src="../images/next.png" alt="next" height="50px" width="50px"></a > 
+    </h1>
+    <h1 class="cen">Introduction to SQL</h1>
+    </header>
+    <img src="../images/namaste.gif" alt="namaste" class="same">
+    <main>
+        <article class="ten">
+            <p id="top"></p>
+            <h2>List of Topics: </h2>
+            <div class="ten2 haha">
+                &#127809; <a href="#comments">Comments</a ><br>
+                &#127809; <a href="#Datatypes">Datatypes</a> <br>
+                &#127809; <a href="#Operators">Operators</a> <br>
+                &#127809; <a href="#core">Core Concepts of SQL</a>
+            </div>
+        </article>
+        &#127775; SQL lo data ni create, modify, delete, etc.., cheyyadaniki manam queries rastam coming sessions lo avi choodam <br>
+        &#127775; Introduction to SQL lo manam Data Types, Comments, Operators choodam.
+        
+        <!--comments-->
+        <p id="comments"></p>
+        <section class="content">
+            <details>
+                <summary>1. Comments</summary>
+            <p>&#127775; Anni languages lane indulo kooda comments unnay dani use telisinde ga, it's like a  description.
+                Comments iddaruntaru chinnodu single line comment & peddhodu multi line comments, kani sql vellani minimum dekadhu. <br>
+                &#127775; Comments always feel like <br>
+                <img src="../images/angry.gif" alt="angry" class="same">
+            </p>
+            <h3>&#128187; Single line comment</h3>
+            <div class="code">
+                <p>-- Collecting all data from database</p>
+            </div>
+            <h3>&#128187; Multi line comment</h3>
+            <div class="code">
+                <p>/* <br> I <br> am <br> multi line comment <br> */</p>
+            </div>
+            </details>
+        </section>
+        
+        <!--Data Types-->
+        <p id="Datatypes"></p>
+        <section class="content">
+            <details>
+                <summary>2. Data Types</summary>
+            <p>&#127775; Please keep it in mind that SQL only works with RDBMS softwares, ante Only langage which communicates with RDBMS is SQL <br>
+            &#127775; Previous page lo cheppinattu RDBMS lo data tables format lo store ayyi untundi, columns ni fields or properties antaru and rows ni records or items ani antaru. <br>
+            &#127775; one single row represents single user data, and column is like attribute <br>
+            &#127775; Every programming language lo different data types untay alane indulo kooda different data types untay. SQL syntax la different RDBMS ki different data types untay, maximum use chese data types in most famous RDBMS manam choodam <br>
+            &#127775; characters single quotes lo unte vatini string antam numbers aythe int <br>
+        </p>
+            <!--2.1. MySQL Data Types-->
+            <details>
+                <summary>2.1. MySQL Data Types: </summary>
+                
+            <div class="ten">
+
+                <h4>2.1.1. Integer Data Types </h4>
+                <p class="ten2">
+                    &#127807; BIT(x) -- can store x-bit values. x can range from 1 to 64 <br>
+                    &#127807; TINYINT -- can store numbers from -128 to 127 <br>
+                    &#127807; SMALLINT -- can store numbers from -32768 to 32767 <br>
+                    &#127807; MEDIUMINT -- can store numbers from -8,388,608 to 8,388,607 <br>
+                    &#127807; INT -- can store numbers from -2,147,483,648 to 2,147,483,647 <br>
+                    &#127807; BIGINT -- can store numbers from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 <br>
+                    &#127807; DECIMAL(x, y) -- can store decimal number of total x digits (max up to 65) and y digits (max up to 30) among them is followed by decimal point <br>
+                </p>
+
+                <h4>2.1.2. String Data Types </h4>
+                <p class="ten2">
+                    &#127807; CHAR(x) -- can store characters of fixed length (max 8000 chars) <br>
+                    &#127807; VARCHAR(x) -- can store characters up to given length (max 8000 chars) <br>
+                    &#127807; BINARY(x) -- can store binary strings of fixed length <br>
+                    &#127807; VARBINARY(x) -- can store binary strings up to given length <br>
+                    &#127807; TINYTEXT -- can store characters up to 255 characters <br>
+                    &#127807; TEXT(x) -- can store characters up to given characters (max upto 65,535 bytes) <br>
+                    &#127807; MEDIUMTEXT -- can store characters up to 16,777,215 characters <br>
+                    &#127807; LONGTEXT -- can store characters up to 4,294,967,295 characters <br>
+                    &#127807; BLOB(x) -- can store binary large object up to 65,535 bytes <br>
+                    &#127807; MEDIUMBLOB -- can store binary large object up to 16,777,215 bytes <br>
+                    &#127807; LONGBLOB -- can store binary large object up to 4,294,967,295 bytes <br>
+                </p>
+
+                <h4>2.1.3. Date and Time Data Types</h4>
+                <p class="ten2">
+                    &#127807; DATE -- can store date in format of YYYY-MM-DD and ranged from 1000-01-01 to 9999-12-31 <br>
+                    &#127807; DATETIME -- can store date and time in format of YYYY-MM-DD hh:mm:ss <br>
+                    &#127807; TIME -- can store only time in format of hh:mm:ss and ranged from -838:59:59 to 838:59:59 <br>
+                    &#127807; YEAR -- can store year in 4 digits format and ranged from 1901 to 2155 <br>
+                    &#127807; TIMESTAMP -- can store timestamp from the current time zone to UTC <br>
+                </p>
+                <p>&#127775; To know more data types in MySQL <a  class="extra" href="https://dev.mysql.com/doc/refman/8.0/en/data-types.html">Click Here</a > </p>
+            </div>
+            </details>
+
+            <!--2.2. SQL Server Data Types-->
+            <details>
+                <summary>2.2. SQL Server Data Types:</summary>
+            <div class="ten">
+
+                <h4>2.2.1. Integer Data Types </h4>
+                <p class="ten2">
+                    &#127807; BIT -- can store single bit (0 or 1) or NULL <br>
+                    &#127807; TINYINT -- can store numbers from 0 to 255 <br>
+                    &#127807; SMALLINT -- can store numbers between -32,768 to 32,767 <br>
+                    &#127807; INT -- can store numbers between -2,147,483,648 and 2,147,483,647 <br>
+                    &#127807; BIGINT -- can store numbers between -9,223,372,036,854,775,808 and 9,223,372,036,854,775,807 
+                </p>
+
+                <h4>2.2.2. String Data Types </h4>
+                <p class="ten2">
+                    &#127807; CHAR(x)-- can store characters of fixed length (max 8000 chars) <br>
+                    &#127807; VARCHAR(x) -- can store characters up to given length (max 8000 chars) <br>
+                    &#127807; TEXT -- can store characters up to 2GB size <br>
+                    &#127807; IMAGE -- can store binary string up to 2 GB size
+                </p>
+
+                <h4>2.2.3. Date and Time Data Types</h4>
+                <p class="ten2">
+                    &#127807; DATETIME -- can store date from January 1, 1753 to December 31, 9999 with time <br>
+                    &#127807; DATETIME2 -- can store date from January 1, 0001 to December 31, 9999 with time <br>
+                    &#127807; DATE -- can store only date from January 1, 0001 to December 31, 9999 <br>
+                    &#127807; TIME -- can store only time
+                </p>
+                <p>&#127775; To know more data types in SQL Server <a  class="extra" href="https://docs.microsoft.com/en-us/sql/t-sql/data-types/data-types-transact-sql?view=sql-server-ver16">Click Here</a > </p>
+            </div>
+            </details>
+
+            <!--2.3. PostgreSQL Data Types-->
+            <details>
+                <summary>2.3. PostgreSQL Data Types:</summary>
+            <div class="ten">
+
+                <h4>2.3.1. Integer Data Types </h4>
+                <p class="ten2">
+                    &#127807; SMALLINT -- can store numbers between -32,768 to 32,767 <br>
+                    &#127807; INTEGER -- can store numbers between -2,147,483,648 and 2,147,483,647 <br>
+                    &#127807; BIGINT -- can store numbers between -9,223,372,036,854,775,808 and 9,223,372,036,854,775,807 <br>
+                    &#127807; DECIMAL -- can store numbers up to 131072 digits before the decimal point; up to 16383 digits after the decimal point <br>
+                    &#127807; SMALLSERIAL -- can store small auto incrementing number from 1 to 32767 <br>
+                    &#127807; SERIAL -- can store auto incrementing number from 1 to 2147483647 <br>
+                    &#127807; BIGSERIAL -- can store big auto incrementing number from 1 to 9223372036854775807 
+                </p>
+
+                <h4>2.3.2. String Data Types </h4>
+                <p class="ten2">
+                    &#127807; CHAR(x) -- can store characters of fixed length <br>
+                    &#127807; VARCHAR(x) -- can store characters up to given length <br>
+                    &#127807; TEXT -- can store characters without limitation 
+                </p>
+
+                <h4>2.3.3. Date and Time Data Types</h4>
+                <p class="ten2">
+                    &#127807; TIMESTAMP -- can store date and time <br>
+                    &#127807; DATE -- can store only date <br>
+                    &#127807; TIME -- can store only time 
+                </p>
+                <p>&#127775; To know more data types in PostgreSQL <a  class="extra" href="https://www.postgresql.org/docs/current/datatype.html">Click Here</a > </p>
+            </div>
+            </details>
+
+            <!--2.4. Oracle Data Types-->
+            <details>
+                <summary>2.4. Oracle Data Types:</summary>
+            <div class="ten">
+
+                <h4>2.4.1. Integer Data Types </h4>
+                <p class="ten2">
+                    &#127807; NUMBER -- can store numbers <br>
+                    
+                </p>
+
+                <h4>2.4.2. String Data Types </h4>
+                <p class="ten2">
+                    &#127807; CHAR(x) -- can store characters of fixed length up to 2000 bytes or characters <br>
+                    &#127807; VARCHAR(x) -- can store characters up to given length (max is 4000 bytes or characters) <br>
+                    &#127807; LONG -- can store characters up to 2 GB
+                </p>
+
+                <h4>2.4.3. Date and Time Data Types</h4>
+                <p class="ten2">
+                    &#127807; TIMESTAMP -- can store date and time <br> 
+                    &#127807; DATE -- can store only date from January 1, 4712 BC to December 31, 9999 AD <br>
+                    &#127807; TIME -- can store only time 
+                </p>
+                <p>&#127775; To know more data types in Oracle <a  class="extra" href="https://docs.oracle.com/cd/B19306_01/server.102/b14200/sql_elements001.htm#i54330">Click Here</a > </p>
+            </div>
+            </details>
+            <img src="../images/shock.gif" alt="shock" class="same">
+            &#127775; Anthala shock avvakandi, manamem ivanni use cheseyam code part ki velte meeke telisipotundi just be cool &#128516;
+            </details>
+        </section>
+
+        <!--Operators-->
+        <p id="Operators"></p>
+        <section class="content">
+            <details>
+                <summary>3. Operators</summary>
+            <p>
+                &#127775; special intro avasaram leni topic, ee language lo yenni types unnayo choodam
+            </p>
+            <div class="ten">
+
+                <h4>3.1. Arithmetic Operators:</h4>
+                <p class="ten2">
+                    &#127807; + -- Add <br>
+                    &#127807; - -- Subtract <br>
+                    &#127807; * -- Multiply <br>
+                    &#127807; / -- Divide <br>                    
+                    &#127807; % -- Modulo
+                </p>
+
+                <h4>3.2. Bitwise Operators:</h4>
+                <p class="ten2">
+                    &#127807; & -- Bitwise AND <br>
+                    &#127807; | -- Bitwise AND <br>
+                    &#127807; ^ -- Bitwise exclusive OR 
+                </p>
+
+                <h4>3.3. Comparison Operators:</h4>
+                <p class="ten2">
+                    &#127807; = -- Equal to <br> 
+                    &#127807; &#62; -- Greater than <br>
+                    &#127807; &#60; -- 	Less than <br>
+                    &#127807; &#62;= -- Greater than or equal to <br>
+                    &#127807; &#60;= -- Less than or equal to <br>
+                    &#127807; &#60;&#62; (or) != -- Not equal to
+                </p>
+
+                <h4>3.4. Compound Operators:</h4>
+                <p class="ten2">
+                    &#127807; += -- Add equals <br>
+                    &#127807; -= -- Subtract equals <br>
+                    &#127807; *= -- Multiply equals <br>
+                    &#127807; /= -- Divide equals <br>
+                    &#127807; %= -- Modulo equals <br>
+                    &#127807; &= -- Bitwise AND equals <br>
+                    &#127807; ^-= -- Bitwise exclusive equals <br>
+                    &#127807; |*= -- Bitwise OR equals
+                </p>
+
+                <h4>3.5. Logical Operators:</h4>
+                <p class="ten2">
+                    &#127807; ALL -- TRUE if all of the subquery values meet the condition <br>
+                    &#127807; AND -- TRUE if all the conditions separated by AND is TRUE <br>
+                    &#127807; ANY -- TRUE if any of the subquery values meet the condition <br>
+                    &#127807; BETWEEN -- TRUE if the operand is within the range of comparisons <br>
+                    &#127807; EXISTS -- TRUE if the subquery returns one or more records <br>
+                    &#127807; IN -- TRUE if the operand is equal to one of a  list of expressions <br>
+                    &#127807; LIKE -- TRUE if the operand matches a  pattern <br>
+                    &#127807; NOT -- Displays a  record if the condition(s) is NOT TRUE <br>
+                    &#127807; OR -- TRUE if any of the conditions separated by OR is TRUE 
+                </p>
+            </div>
+            </details>
+        </section>
+
+        <!--core concepts-->
+        <p id="core"></p>
+        <section class="content">
+            <details>
+                <summary>4. Core Concepts of SQL</summary>
+            <img src="../images/sql commands.png" alt="sql commands" class="same one">
+            &#127775; The above image represents Core Concepts of SQL. SQL story antha depend ayyedi ee topic paine, veetikosame manam discuss chesedi coming sessions anni.
+            <p>&#127775; your wait is over mothaniki manam SQL ni chuse time vacchindi, hero vachestunnadu..</p>
+            <img src="../images/hero entry.gif" alt="hero" class="same">
+            </details>
+        </section>
+
+        
+    </main>
+    <footer>
+        <h1 class="head"><a  href="../index.html#top2" class="an"><img src="../images/home.png" alt="home" height="50px" width="50px"></a ><a  href="../html files/SQL Database.html" class="an an1"><img src="../images/next.png" alt="next" height="50px" width="50px"></a > 
+        </h1>
+        <a  href="#top"><img src="../images/up-arrow.png" alt="up" class="bottom" width="60px" height="60px"></a >
+    </footer>
+    <div class="lite2">
+        <p>Copyright &#9400; 2022 All Rights Reserved | Polamarasetti Jayakrishna</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--font-family: 'Inconsolata', monospace;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap" rel="stylesheet">
+
+    <!--font-family: 'Nixie One', cursive;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nixie+One&display=swap" rel="stylesheet">
+
+    <!--font-family: 'Red Hat Mono', monospace;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="../styles/database.css">
+    <title>SQL DCL & TCL Commands</title>
+    <link rel="icon" type="image/x-icon" href="/images/sql icon.png">
+    <meta charset="UTF-8">
+    <meta name="description" content="SQL DCL & TCL Commands">
+    <meta name="keywords" content="DCL & TCL Commands">
+    <meta name="author" content="Polamarasetti Jayakrishna">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="sql">
+        <img src="../images/sql icon.png" alt="sql" class="sql" width="50px" height="50px">
+    </div>
+
+    <header>
+        <h1 class="head"><a class="an" href="../html files/SQL Aggregrate.html"><img src="../images/before.png" alt="before" height="50px" width="50px"></a> <a href="../index.html#top2" class="an"><img src="../images/home.png" alt="home" height="50px" width="50px"></a> <a href="../html files/conclusion.html" class="an"><img src="../images/next.png" alt="next" height="50px" width="50px"></a> 
+    </h1>
+    <p id="top"></p>
+    <h1 class="cen">SQL DCL & TCL Commands</h1>
+    </header>
+
+    <article class="ten">
+        <p id="top"></p>
+        <h2>List of Topics: </h2>
+        <div class="ten2 haha">
+            &#127809; <a href="#dcl">Data Control Language</a> <br>
+            &#127809; <a href="#tcl">Transaction Control Language</a> <br>
+        </div>
+    </article>
+
+    <main> 
+
+        <!--Data Control Language-->
+        <p id="dcl"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; Data Control Language</summary>
+            &#127775; nuv oka project meeda work chestunnav, yevado ne file access chesi delete cheseste yela untadi <br>
+            <img src="../images/venky-ravi-teja.gif" alt="venky" class="same">
+            &#127775; anthe ga alane anipistundi ga. manaki ilanti situation lo help chesevade DCL -- Data Control Language <br>
+            &#127775; It helps in controlling access to information stored in a database <br>
+            &#127775; indulo two commands untay vatini use chesi yevadu mana files access cheyyochu, yevadiki mana files access undakudadho manam set cheskovacchu <br>
+            &#127809; GRANT Command: <br>
+            &#127775; syntax: <br>
+            <p class="ten2">GRANT privilege_name on objectname to user;</p>
+            &#127775; privilege place lo ee commands ni use cheyyochu SELECT,UPDATE,DELETE,INSERT,ALTER,ALL according to your requirement<br>
+            &#127775; objectname ante table name <br>
+            &#127775; user place lo meeru yevarikaite privileges ni grant cheyyalanukuntunnaro valla name rastaru<br>
+            <div class="code">
+                <p><span class="yel">GRANT SELECT</span>, <span class="yel">UPDATE ON </span>Customers <span class="yel">TO </span>John;</p>
+            </div>
+            &#127775; John ane person ki Customers table lo data emundo choodagaladu and update kooda cheyyagaladu <br>
+            &#127809; REVOKE Command: <br>
+            &#127775; syntax: <br>
+            <p class="ten2">same as GRANT kakapote dani place lo REVOKE ani pedtaru</p>
+            <div class="code">
+                <p><span class="yel">REVOKE SELECT</span>, <span class="yel">UPDATE ON </span>Customers <span class="yel">TO </span>John;</p>
+            </div>
+            &#127775; ippudu John gadu Customers table data choodaledu, update kooda cheyyaledu 
+            </details>
+        </section>
+
+        <!--Transaction Control Language-->
+        <p id="tcl"></p>
+        <section class="content">
+            <details>
+                <summary>&#128187; Transaction Control Language</summary>
+            <img src="../images/malli.gif" alt="malli" class="same">
+            &#127775; ee topic antha malli ane word chuttune tirugutundi <br>
+            &#127775; by mistake oka file meeru delete chesesaru ventane undo ane block popup avtundi click cheste malli vachestundi delete ayina file <br>
+            &#127775; so, database lo data paina jarige anni Transactions ni control chesede ee TCL commands <br>
+            &#127809; COMMIT Command: <br> 
+            &#127775; meeru table ki INSERT, DELETE or UPDATE operations chesetappudu avi temporary ga store avtay <br>
+            &#127775; permanent ga store avvali ant we use commit command <br>
+            &#127809; ROLLBACK Command: <br>
+            &#127775; anukokunda file delete chesi nappudu undo option undi ga adhe ROLLBACK ante <br>
+            &#127809; SAVEPOINT Command: <br>
+            &#127775; SAVEPOINT enti ante checkpoints laga manam save points ni pettukovacchu code madhyalo, ye point ki rollback avvalo ah point mention chestaru roll back pakkana <br>
+            <img src="../images/funny-family.gif" alt="fun" class="same">
+            &#127775; haa now its example time <br>
+            &#127775; na deggara ee table undi <br>
+            &#127809; Users Table: <br>
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+
+                    <tr>
+                        <td>Shelley</td>
+                        <td>UAE</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Yoshi</td>
+                        <td>Japan</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Dirk</td>
+                        <td>Netherlands</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">UPDATE </span>Users</p>
+                <p><span class="yel">SET </span>username = <span class="str">'Johnson'</span></p>
+                <p><span class="yel">WHERE </span>username = <span class="str">'Yoshi'</span>;</p>
+                <p><span class="yel">COMMIT</span>;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+
+                    <tr>
+                        <td>Shelley</td>
+                        <td>UAE</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Johnson</td>
+                        <td>Japan</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Dirk</td>
+                        <td>Netherlands</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; commit use chesam kadha permanent store avtundi ippudu, if incase commit kakunda rollback use cheste <br>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">UPDATE </span>Users</p>
+                <p><span class="yel">SET </span>username = <span class="str">'Johnson'</span></p>
+                <p><span class="yel">WHERE </span>username = <span class="str">'Yoshi'</span>;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+
+                    <tr>
+                        <td>Shelley</td>
+                        <td>UAE</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Johnson</td>
+                        <td>Japan</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Dirk</td>
+                        <td>Netherlands</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; When rollback performed on above table <br>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">ROLLBACK</span>;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+
+                    <tr>
+                        <td>Shelley</td>
+                        <td>UAE</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Yoshi</td>
+                        <td>Japan</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Dirk</td>
+                        <td>Netherlands</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">INSERT INTO</span> Users</p>
+                <p><span class="yel">VALUES </span>( <span class="str">'Carlos'</span>, <span class="str">'Brazil'</span>);</p>
+                <br>
+                <p><span class="yel">COMMIT</span>;</p>
+                <br>
+                <p><span class="yel">UPDATE </span>Users</p>
+                <p><span class="yel">SET </span>username = <span class="str">'Johnson'</span></p>
+                <p><span class="yel">WHERE </span>username = <span class="str">'Yoshi'</span>;</p>
+                <br>
+                <p><span class="yel">SAVEPOINT </span>A;</p>
+                <br>
+                <p><span class="yel">INSERT INTO</span> Users</p>
+                <p><span class="yel">VALUES </span>( <span class="str">'Petersen'</span>, <span class="str">'Germany'</span>);</p>
+                <br>
+                <p><span class="yel">SAVEPOINT </span>B;</p>
+                <br>
+                <p><span class="yel">INSERT INTO</span> Users</p>
+                <p><span class="yel">VALUES </span>( <span class="str">'Vileid'</span>, <span class="str">'Norway'</span>);</p>
+                <br>
+                <p><span class="yel">SAVEPOINT </span>C;</p>
+                <br>
+                <p><span class="yel">SELECT </span>*</p>
+                <p><span class="yel">FROM </span>Users;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+
+                    <tr>
+                        <td>Shelley</td>
+                        <td>UAE</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Johnson</td>
+                        <td>Japan</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Dirk</td>
+                        <td>Netherlands</td>
+                    </tr>
+
+                    <tr>
+                        <td>Carlos</td>
+                        <td>Brazil</td>
+                    </tr>
+
+                    <tr>
+                        <td>Petersen</td>
+                        <td>Germany</td>
+                    </tr>
+
+                    <tr>
+                        <td>Vileid</td>
+                        <td>Norway</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; if we performed Rollback to Savepoint B <br>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">ROLLBACK TO </span>B;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+
+                    <tr>
+                        <td>Shelley</td>
+                        <td>UAE</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Johnson</td>
+                        <td>Japan</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Dirk</td>
+                        <td>Netherlands</td>
+                    </tr>
+
+                    <tr>
+                        <td>Carlos</td>
+                        <td>Brazil</td>
+                    </tr>
+
+                    <tr>
+                        <td>Petersen</td>
+                        <td>Germany</td>
+                    </tr>
+                </table>
+            </div>
+            &#127775; if we performed Rollback to Savepoint A <br>
+            &#127809; Query: 
+            <div class="code">
+                <p><span class="yel">ROLLBACK TO </span>A;</p>
+            </div>
+            &#127809; Outcome:
+            <div class="T" style="overflow-x: auto;">
+                <table>
+                    <tr>
+                        <th>username</th>
+                        <th>country</th>
+                    </tr>
+
+                    <tr>
+                        <td>Shelley</td>
+                        <td>UAE</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Johnson</td>
+                        <td>Japan</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Dirk</td>
+                        <td>Netherlands</td>
+                    </tr>
+
+                    <tr>
+                        <td>Carlos</td>
+                        <td>Brazil</td>
+                    </tr>
+                </table>
+            </div>
+            &#127809; DCL and TCL :
+            <img src="../images/dj-tillu-siddhu-jonnalagadda.gif" alt="dj" class="same">
+            </details>
+        </section>
+        
+    </main>
+
+
+    <footer>
+        <h1 class="head"><a class="an" href="../html files/SQL Aggregrate.html"><img src="../images/before.png" alt="before" height="50px" width="50px"></a> <a href="../index.html#top2" class="an"><img src="../images/home.png" alt="home" height="50px" width="50px"></a> <a href="../html files/conclusion.html" class="an"><img src="../images/next.png" alt="next" height="50px" width="50px"></a> 
+        </h1>
+        <a href="#top"><img src="../images/up-arrow.png" alt="up" class="bottom" width="60px" height="60px"></a>
+    </footer>
+    <div class="lite2">
+        <p>Copyright &#9400; 2022 All Rights Reserved | Polamarasetti Jayakrishna</p>
+    </div>
+</body>
+</html>     
